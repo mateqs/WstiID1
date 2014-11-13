@@ -39,8 +39,8 @@ public class Dziennik {
     
     //metody pracujące najdalej z nauczycielem
     
-    public void addNauczyciel(Nauczyciel Nauczyciel) {
-        Nauczyciele.add(Nauczyciel);
+    public void addNauczyciel(Nauczyciel nauczycielObj) {
+        Nauczyciele.add(nauczycielObj);
     }
     
     public void addNauczyciel (String Imie , String Nazwisko) {
