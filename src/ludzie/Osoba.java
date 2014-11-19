@@ -4,6 +4,7 @@ package ludzie;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Objects;
 import program.Ocena;
 
 /**
@@ -19,6 +20,13 @@ public class Osoba {
     protected String ulica = null;
     protected int nrDomu = -1;
     protected String kodPocztowy = null;
+
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        return hash;
+    }
+
     
     public Osoba ( String Imie , String Nazwisko) {
         

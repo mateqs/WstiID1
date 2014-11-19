@@ -8,7 +8,6 @@ package program;
 
 import java.util.Date;
 import java.util.LinkedList;
-import ludzie.Nauczyciel;
 import ludzie.Uczen;
 
 /**
@@ -39,10 +38,6 @@ public class Klasa {
         this.domyslnePrzedmioty = false;
     }
     
-    public void printKlasa(Nauczyciel n ) { 
-        System.out.println("\nKlasa " + this +" "
-                + ", Wychowawca : " + n);
-    }
     
     public int getNumerKlasy() {
         return numerKlasy;
@@ -72,10 +67,12 @@ public class Klasa {
         return numerKlasy + " " + znakKlasy;
     }
     
-    public void setWychowawca (int IdWychowawcy) {
-         
-         this.idWychowawcy = IdWychowawcy;
-     }
+    public boolean setWychowawca(int IdWychowawcy) {
+
+        this.idWychowawcy = IdWychowawcy;
+        return true;
+
+    }
      
     public int getIdWychowawcy () {
         return idWychowawcy;
@@ -105,41 +102,48 @@ public class Klasa {
     
     // Metody do uczniów
             
-    public void addUczen( String Imie , String Nazwisko){
-         
-        Uczen u = new Uczen(Imie, Nazwisko);
+    public boolean addUczen( String Imie , String Nazwisko){
+        boolean b = false;
+        if (Imie != null && Nazwisko != null){
         
-        uczniowie.add(u);
-        
-        zapiszUczniaNaWszystkiePrzedmioty(u);
-         
+            Uczen u = new Uczen(Imie, Nazwisko);
+
+            b= uczniowie.add(u);
+
+            if (b)
+            zapiszUczniaNaWszystkiePrzedmioty(u);
+
+        }
+        return b;
         
      }
     
-    public void setUczen (int idUcznia, Date DataUrodzenia , 
+    public boolean setUczen (int idUcznia, Date DataUrodzenia , 
                         String Miejscowosc , String Ulica , int NrDomu ,
                         String KodPocztowy) {
         
         Uczen n = this.getUczen(idUcznia);
+        boolean b;
         
-        n.setWszystkieDane(DataUrodzenia, Miejscowosc, Ulica, NrDomu, KodPocztowy);
+        b=n.setWszystkieDane(DataUrodzenia, Miejscowosc, Ulica, NrDomu, KodPocztowy);
         
+        return b;
     }
     
-    public void printUczen (int idUcznia){
-        Uczen u = getUczen(idUcznia);
-        
-        System.out.println(u);
-    }
+   
     
-    public void printWszyscyUczniowie() {
+    public Uczen[] printWszyscyUczniowie() {
         
-        for (Uczen u : uczniowie) {
-            System.out.println(u);
+        Uczen [] lista = new Uczen [uczniowie.size()];
+        
+        for ( int i =9 ; i < uczniowie.size() ; i++ ) {
+            lista[i] = uczniowie.get(i);
         }
+        
+        return lista;
     }
     
-    public void removeUczen (int idUcznia){
+    public boolean removeUczen (int idUcznia){
         
         boolean znaleziono = false;
         Uczen swap = null;
@@ -154,12 +158,16 @@ public class Klasa {
             else 
                 i++;
         }
-        if(znaleziono)
+        if(znaleziono){
             uczniowie.remove(i);
+            return true;
+        }
+        else
+            return false;
         
     }
     
-    private Uczen getUczen(int idUcznia) {
+    public Uczen getUczen(int idUcznia) {
         boolean znaleziono = false;
         Uczen swap = null;
         int i =0;
@@ -203,8 +211,9 @@ public class Klasa {
         }
     }
     
-    public void printUczniowieNaPrzedmiocie (String Nazwa) {
-         boolean znaleziono = false;
+    public Uczen[] printUczniowieNaPrzedmiocie (String Nazwa) {
+        
+        boolean znaleziono = false;
         Przedmiot p = null;
         int i=0;
         
@@ -216,11 +225,13 @@ public class Klasa {
                 i++;
         }
         
-        if (znaleziono)
-            p.printUczniowie();
+        
+        return p.printUczniowie();
+        
+             
     }
     
-    public void removeUczenZPrzedmiotu (String Nazwa , int IdUcznia) {
+    public boolean removeUczenZPrzedmiotu (String Nazwa , int IdUcznia) {
     
         boolean znaleziono = false;
         int i =0;
@@ -234,8 +245,11 @@ public class Klasa {
                 i++;
             
         }
-        if (znaleziono)
+        if (znaleziono){
             p.removeUczenZPrzedmiotu(IdUcznia);
+            return true;
+        }
+        else return false;
     }
     
     // Metody do Przedmiotów
@@ -259,8 +273,7 @@ public class Klasa {
             Przedmioty.add(new Przedmiot("Plastyka"));
             domyslnePrzedmioty = true;
         }
-       else
-            System.out.println("Domyślne przedmioty mozna dodac tylko raz.");
+        
     }
     
     public boolean addPrzedmiot(String NazwaPrzedmiotu, int idNauczyciela) {
@@ -275,7 +288,7 @@ public class Klasa {
         return true;
     }
     
-    public void setIdNauczyciela(String NazwaPrzedmiotu, int idNauczyciela) {
+    public boolean setIdNauczyciela(String NazwaPrzedmiotu, int idNauczyciela) {
         
         boolean znaleziono = false;
         Przedmiot p =null;
@@ -288,9 +301,13 @@ public class Klasa {
                 znaleziono = true;
     
         }
-        if(znaleziono)
-            p.setNauczyciel(idNauczyciela);
+        if(znaleziono){
+            if(p.setNauczyciel(idNauczyciela))
+            return  true;
+            
+        }
         
+        return false;
     }
     
     public boolean addPrzedmiot(String NazwaPrzedmiotu) {
@@ -305,12 +322,16 @@ public class Klasa {
         return true;
     }
     
-    public void printPrzedmioty(){
-        System.out.println("Przedmioty klasy " +numerKlasy+znakKlasy +" to:");
+    public String[] printPrzedmioty(){
+
+        String[] nazwy = new String[Przedmioty.size()];
         
-        for (Przedmiot p : Przedmioty) {
-            System.out.println(p);
+        for (int i = 0 ; i < Przedmioty.size() ; i++) {
+            nazwy[i] = Przedmioty.get(i).toString();
         }
+        
+        return nazwy;
+        
     }
     
     public void removePrzemiot (String Nazwa) {
@@ -335,7 +356,7 @@ public class Klasa {
     
     // metody do ocen
     
-    public void addOcena (String Nazwa , double wartosc , int indeks) {
+    public boolean addOcena (String Nazwa , double wartosc , int indeks) {
         
         boolean znaleziono = false;
         Przedmiot p=null;
@@ -349,11 +370,14 @@ public class Klasa {
                 i++;
         }
         
-        if (znaleziono)
+        if (znaleziono){
             p.addOcena(wartosc, indeks);
+            return true;
+        }
+        else return false;
     }
     
-    public void printOcenyUcznia (String Nazwa , int indeks) {
+    public Ocena[] printOcenyUcznia (String Nazwa , int indeks) {
         
         boolean znaleziono = false;
         Przedmiot p=null;
@@ -368,6 +392,9 @@ public class Klasa {
         }
         
         if (znaleziono)
-            p.printOcenyUcznia(indeks);
+            return p.printOcenyUcznia(indeks);
+        else
+            return null;
+             
     }
 }

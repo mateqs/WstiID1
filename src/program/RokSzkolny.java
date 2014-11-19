@@ -10,7 +10,7 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.LinkedList;
-import ludzie.Nauczyciel;
+import ludzie.Uczen;
 
 /**
  *
@@ -28,16 +28,6 @@ public class RokSzkolny {
     
     public RokSzkolny(int RokSzkolny ) {
         this.rokSzkolny = RokSzkolny;
-    }
-    
-    public void printRokSzkolny() {
-        int koniecRoku = rokSzkolny + 1;
-        System.out.println("Rocznik na którym obecnie wykonymane są operacje "
-                           + "to rocznik " + this + ".");
-        
-        Calendar dzisiaj = new GregorianCalendar();
-        if (dzisiaj.get(Calendar.YEAR) > rokSzkolny )
-            System.out.print("Uwaga, operujesz na archiwalnym roczniku.");
     }
     
     public int getRokSzkolny() {
@@ -66,8 +56,6 @@ public class RokSzkolny {
            klasy.get(i).zaladujPrzykladoweDane();
        }
       
-      
-
     }
     //metody pracujące najdalej z klasą
     
@@ -116,7 +104,7 @@ public class RokSzkolny {
     * w przeciwnym wypadku zwaraca null
     *
     */
-    private Klasa getKlasa(int numerKlasy , char znakKlasy) {
+    public Klasa getKlasa(int numerKlasy , char znakKlasy) {
         boolean znaleziono = false;
         Klasa swap = null;
         Klasa wzor = new Klasa(numerKlasy, znakKlasy);
@@ -135,20 +123,19 @@ public class RokSzkolny {
         else
             return null;
     }
+   
     
-    public void printKlasa(int numerKlasy , char znakKlasy, final Nauczyciel nauczyciel) {
+    public boolean setIdWychowawcy(int numerKlasy , char znakKlasy , int noweID) {
         Klasa k = getKlasa(numerKlasy, znakKlasy);
-        
-        k.printKlasa(nauczyciel);
+        return k.setWychowawca(noweID);
     }
-    
-    public void setIdWychowawcy(int numerKlasy , char znakKlasy , int noweID) {
+    public boolean removeKlasa (int numerKlasy, char znakKlasy) {
         Klasa k = getKlasa(numerKlasy, znakKlasy);
-        k.setWychowawca(noweID);
-    }
-    public void removeKlasa (int numerKlasy, char znakKlasy) {
-        Klasa k = getKlasa(numerKlasy, znakKlasy);
-        klasy.remove(k);
+        if(k != null){
+            klasy.remove(k);
+            return true;
+        }
+        else return false;
     }
     
     public int getIloscKlas(){
@@ -161,91 +148,107 @@ public class RokSzkolny {
     
     //metody pracujące najdalej z uczniem
     
-    public void addUczen(int numerKlasy , char znakKlasy ,String imie, String nazwisko) {
+    public boolean addUczen(int numerKlasy , char znakKlasy ,String imie, String nazwisko) {
         Klasa k = getKlasa(numerKlasy, znakKlasy);
-        k.addUczen(imie, nazwisko);
+        if(k!=null)
+            return k.addUczen(imie, nazwisko);
+        else return false;
     }
     
-    public void setUczen(int numerKlasy, char znakKlasy ,int idUcznia, Date DataUrodzenia , 
+    public boolean setUczen(int numerKlasy, char znakKlasy ,int idUcznia, Date DataUrodzenia , 
                         String Miejscowosc , String Ulica , int NrDomu ,
                         String KodPocztowy) {
         
         Klasa k = this.getKlasa(numerKlasy, znakKlasy);
+        boolean b;
         
-        k.setUczen(idUcznia, DataUrodzenia, Miejscowosc, Ulica, NrDomu, KodPocztowy);
+        b=k.setUczen(idUcznia, DataUrodzenia, Miejscowosc, Ulica, NrDomu, KodPocztowy);
+    
+       return b;
     }
     
-    public void printUczen (int numerKlasy, char znakKlasy ,int idUcznia){
+    public Uczen printUczen (int numerKlasy, char znakKlasy ,int idUcznia){
         Klasa k = getKlasa(numerKlasy, znakKlasy);
-        k.printUczen(idUcznia);
+        Uczen u = k.getUczen(idUcznia);
+        return u;
     }
     
-    public void printWszyscyUczniowie(int numerKlasy , char znakKlasy) {
+    public Uczen[]  printWszyscyUczniowie(int numerKlasy , char znakKlasy) {
         Klasa k = getKlasa(numerKlasy, znakKlasy);
         
-        k.printWszyscyUczniowie();
-        
+        Uczen[] u = k.printWszyscyUczniowie();
+        return u;
     }
     
-    public void removeUczen (int numerKlasy, char znakKlasy ,int idUcznia) {
+    public boolean removeUczen (int numerKlasy, char znakKlasy ,int idUcznia) {
         Klasa k = getKlasa(numerKlasy, znakKlasy);
-        k.removeUczen(idUcznia);
+        
+        return  k.removeUczen(idUcznia);
         
     }
     
     //metody pracujące najdalej z przedmiotem
     
-    public void addPrzedmiot(int numerKlasy, char znakKlasy ,
+    public boolean addPrzedmiot(int numerKlasy, char znakKlasy ,
                             String NazwaPrzedmiotu, int idNauczyciela){
         Klasa k = getKlasa(numerKlasy, znakKlasy);
         
         k.addPrzedmiot(NazwaPrzedmiotu, idNauczyciela);
+        return true;
     }
     
-    public void printPrzedmioty( int numerKlasy , char znakKlasy) {
+    public String [] printPrzedmioty( int numerKlasy , char znakKlasy) {
         Klasa k = getKlasa(numerKlasy, znakKlasy);
         
-        k.printPrzedmioty();
+        String[] s =k.printPrzedmioty();
+        
+        return s;
     }
     
-    public void removePrzedmiot(int numerKlasy , char znakKlasy , String Nazwa ) {
+    public boolean removePrzedmiot(int numerKlasy , char znakKlasy , String Nazwa ) {
         Klasa k = getKlasa(numerKlasy, znakKlasy);
         
-        k.removePrzemiot(Nazwa);
+        if (k != null){
+            k.removePrzemiot(Nazwa);
+            return true;
+        }
+        else 
+            return false;
     }
     
-    public void setIdNauczyciela (int numerKlasy , char znakKlasy , 
+    public boolean setIdNauczyciela (int numerKlasy , char znakKlasy , 
                                   String NazwaPrzedmiotu , int ID) {
         Klasa k = getKlasa(numerKlasy, znakKlasy);
-        
-        k.setIdNauczyciela(NazwaPrzedmiotu, ID);
-       
+        if (k!=null)
+             return k.setIdNauczyciela(NazwaPrzedmiotu, ID);
+   
+        else return false;
     }
     
-    public void printUczniowieNaPrzedmiocie (int numerKlasy , char znakKlasy ,String Nazwa) {
+    public Uczen[] printUczniowieNaPrzedmiocie (int numerKlasy , char znakKlasy ,String Nazwa) {
         Klasa k = getKlasa(numerKlasy, znakKlasy);
         
-        k.printUczniowieNaPrzedmiocie(Nazwa);
+        return k.printUczniowieNaPrzedmiocie(Nazwa);
     }
     
-    public void removeUczenZPrzedmiotu (int numerKlasy , char znakKlasy ,String nazwa , int idUcznia) {
+    public boolean removeUczenZPrzedmiotu (int numerKlasy , char znakKlasy ,String nazwa , int idUcznia) {
         
         Klasa k = getKlasa(numerKlasy, znakKlasy);
-        k.removeUczenZPrzedmiotu(nazwa, idUcznia);
+        return k.removeUczenZPrzedmiotu(nazwa, idUcznia);
         
     }
     //metody pracujące najdalej z ocenami
     
-    public void addOcena (int numerKlasy , char znakKlasy ,
+    public boolean addOcena (int numerKlasy , char znakKlasy ,
                     String Nazwa , double wartosc , int indeks) {
         Klasa k = getKlasa(numerKlasy, znakKlasy);
-        k.addOcena(Nazwa, wartosc, indeks);
+        return k.addOcena(Nazwa, wartosc, indeks);
     }
     
-    public void printOcenyUcznia (int numerKlasy , char znakKlasy , 
+    public Ocena[] printOcenyUcznia (int numerKlasy , char znakKlasy , 
             String Nazwa , int indeks) {
         Klasa k = getKlasa(numerKlasy, znakKlasy);
         
-        k.printOcenyUcznia(Nazwa, indeks);
+        return k.printOcenyUcznia(Nazwa, indeks);
     }
 }

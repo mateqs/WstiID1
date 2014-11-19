@@ -16,11 +16,20 @@ import java.util.Scanner;
  */
 public class Program {
 
+
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
 
 
+       String[] t = new String[0];
+       
+       for ( String ta : t) {
+           System.out.print(ta);
+       }
+        
+        
+        
     }
 } 

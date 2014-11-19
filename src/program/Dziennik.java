@@ -9,6 +9,7 @@ package program;
 import java.util.Date;
 import java.util.LinkedList;
 import ludzie.Nauczyciel;
+import ludzie.Uczen;
 
 /**
  *
@@ -24,6 +25,7 @@ public class Dziennik {
         RokSzkolny rok = new RokSzkolny();
         WszystkieRoczniki.add(rok);
         ObecnyRocznik = rok;
+        
     }
 
     public void zaladujPrzykladoweDane() {
@@ -36,22 +38,29 @@ public class Dziennik {
         addNauczyciel(new Nauczyciel("Adam", "Cokolwiek"));
         ObecnyRocznik.zaladujPrzykladoweDane();
     }
-    
+        
     //metody pracujące najdalej z nauczycielem
     
-    public void addNauczyciel(Nauczyciel nauczycielObj) {
-        Nauczyciele.add(nauczycielObj);
-    }
-    
-    public void addNauczyciel (String Imie , String Nazwisko) {
+    public boolean addNauczyciel(Nauczyciel nauczycielObj) {
         
-        Nauczyciele.add(new Nauczyciel(Imie, Nazwisko));
+        Nauczyciele.add(nauczycielObj);
+        return true;
     }
     
-    public void printNauczyciele (){
-        for (Nauczyciel n : Nauczyciele ) {
-            System.out.println(n.toString());
+    public boolean addNauczyciel (String Imie , String Nazwisko) {
+
+        Nauczyciele.add(new Nauczyciel(Imie, Nazwisko));
+        return true;
+    }
+    
+    public Nauczyciel[] printNauczyciele (){
+        
+        Nauczyciel[] TabNauczycieli = new Nauczyciel[Nauczyciele.size()];
+        for (int i =0 ; i < Nauczyciele.size() ; i++ ) {
+            TabNauczycieli[i] = Nauczyciele.get(i);
         }
+            
+        return TabNauczycieli; 
     }
     
         //Zwraca true w momencie poprawnego ustawienia wszystkich danych
@@ -59,30 +68,16 @@ public class Dziennik {
                         String Miejscowosc , String Ulica , int NrDomu ,
                         String KodPocztowy ) {
         
-//        boolean znaleziono = false;
-//        int i =0;
+
         Nauczyciel n =getNauczyciel(idNauczyciela);
-        
-//        do {
-//            
-//            n = Nauczyciele.get(i);
-//           
-//            if(n.isIdEqual(idNauczyciela))
-//                znaleziono = true;
-//            else
-//                ++i;
-//           
-//            
-//        }while((!znaleziono ) && i < Nauczyciele.size() );
-//        
-//        if(znaleziono)
+        if ( n != null){
         return n.setWszystkieDane(DataUrodzenia, Miejscowosc, Ulica, NrDomu, KodPocztowy);
-//        else
-//        return false;
+        }
+        else return false;
     }
     
-    public void removeNauczyciel (int idNauczyciela) {
-        
+    public boolean removeNauczyciel (int idNauczyciela) {
+  
         boolean znaleziono = false;
         int i =0;
         Nauczyciel n;
@@ -99,9 +94,13 @@ public class Dziennik {
             
         }while((!znaleziono) && i < Nauczyciele.size() );
         
-        if (znaleziono)
+        if (znaleziono) {
             Nauczyciele.remove(i);
-        
+            return true;
+        }
+        else
+            return false; 
+                  
     }
     
     private Nauczyciel getNauczyciel (int idNauczyciela) {
@@ -125,29 +124,13 @@ public class Dziennik {
             return null;
     }
     
-    public void printWszyscyWSzkole(){
-        int id, numer;
-        char znak;
-        Klasa k;
-        Nauczyciel n;
-        
-        
-        for (int i=0 ; i<ObecnyRocznik.getIloscKlas() ; i++) {
-            k = ObecnyRocznik.getKlasa(i);
-            numer = k.getNumerKlasy();
-            znak = k.getZnakKlasy();
-            id = k.getIdWychowawcy();
-            
-            n =getNauczyciel(id);
-            ObecnyRocznik.printKlasa(numer, znak, n);
-            ObecnyRocznik.printWszyscyUczniowie(numer, znak);
-        }
-    }
     
     //Metody pracujące najdalej z rocznikiem / (przerobić na metody nieme)
     
-    public void printRokSzkolny() {
-        ObecnyRocznik.printRokSzkolny();
+    public String printRokSzkolny() {
+        
+        return ObecnyRocznik.toString();
+        
     };
     
     public boolean addRocznik(int rocznik ) {
@@ -173,8 +156,6 @@ public class Dziennik {
             WszystkieRoczniki.add(rok);
         ObecnyRocznik = rok;  
         
-        System.out.println("Obecne operacje wykonywane będą na roczniku: " +
-                ObecnyRocznik +".");
         return true;
         }
         else
@@ -184,8 +165,8 @@ public class Dziennik {
         
     }
     
-    public void setObecnyRokSzkolnyNa(int rok ) {
-        
+    public boolean setObecnyRokSzkolnyNa(int rok ) {
+
         if( ObecnyRocznik.getRokSzkolny() != rok) {
         
             int i = 0;
@@ -201,27 +182,22 @@ public class Dziennik {
                    znaleziono = true;
 
                    ObecnyRocznik = tymczasowy;
-                   System.out.println("Obecne operacje wykonywane będą na roczniku: "
-                   + tymczasowy + ".");
-
+                  
+                   return true;
                 }
 
 
             } while( i < WszystkieRoczniki.size() && znaleziono == false );
 
-
-            if ( znaleziono == false )
-                System.out.println("Mimo wszelkich starań nie udało się zmienić"
-                        + " roku na: " + rok + "\nwszystkie kolejne operacje "
-                        + "wykonane zostaną na roku " + ObecnyRocznik +".");
-    
+             
         }
-        else
-            System.out.println("Wywołano Obecny Rok.");
-
+        
+            return false;
+        
+       
     }
     
-    public void removeRokSzkolny (int rok) {
+    public boolean removeRokSzkolny (int rok) {
         
         boolean znaleziono = false;
         int i =0;
@@ -239,8 +215,12 @@ public class Dziennik {
             
         }while((!znaleziono) && i < WszystkieRoczniki.size() );
         
-        if (znaleziono)
+        if (znaleziono){
             WszystkieRoczniki.remove(i);
+            return true;
+        }
+        else 
+            return false;
         
     }
     
@@ -248,115 +228,116 @@ public class Dziennik {
     
     public boolean addKlasa(int numerKlasy, char znakKlasy, int idWychowawcy) {
 
-        if (ObecnyRocznik.addKlasa(numerKlasy, znakKlasy, idWychowawcy)) 
-            return true;
-        else 
-            return false;
+        return ObecnyRocznik.addKlasa(numerKlasy, znakKlasy, idWychowawcy);
+        
     }
    
-    public void printKlasa (int numerKlasy, char znakKlasy) {
+    public Klasa printKlasa (int numerKlasy, char znakKlasy) {
+
+        return ObecnyRocznik.getKlasa(numerKlasy, znakKlasy);
+    }
+                
+    public boolean setIdWychowawcy (int numerKlasy , char znakKlasy , int noweID) {
+    
+        boolean b;
         
-        int id= ObecnyRocznik.getIdWychowawcy(numerKlasy, znakKlasy);
-        Nauczyciel n = this.getNauczyciel(id);
-        ObecnyRocznik.printKlasa(numerKlasy, znakKlasy, n);
+        b= ObecnyRocznik.setIdWychowawcy( numerKlasy ,  znakKlasy ,  noweID);
+    
+        return b;
     }
     
-    public void printWszystkieKlasy(){
-        int id, numer;
-        char znak;
-        Klasa k;
-        Nauczyciel n;
-        
-        
-        for (int i=0 ; i<ObecnyRocznik.getIloscKlas() ; i++) {
-            k = ObecnyRocznik.getKlasa(i);
-            numer = k.getNumerKlasy();
-            znak = k.getZnakKlasy();
-            id = k.getIdWychowawcy();
-            
-            n =getNauczyciel(id);
-            ObecnyRocznik.printKlasa(numer, znak, n);
-            
-        }
-    }
-            
-    public void setIdWychowawcy (int numerKlasy , char znakKlasy , int noweID) {
-        ObecnyRocznik.setIdWychowawcy( numerKlasy ,  znakKlasy ,  noweID);
-    }
-    
-    public void removeKlasa (int numerKlasy , char znakKlasy) {
-        ObecnyRocznik.removeKlasa(numerKlasy, znakKlasy);
+    public boolean removeKlasa (int numerKlasy , char znakKlasy) {
+   
+    return ObecnyRocznik.removeKlasa(numerKlasy, znakKlasy);
     }
     
     //metody pracujące najdalej z przedmiotem
     
-    public void addPrzedmiot (int numerKlasy, char znakKlasy ,
+    public boolean addPrzedmiot (int numerKlasy, char znakKlasy ,
                              String NazwaPrzedmiotu, int idNauczyciela) {
-        ObecnyRocznik.addPrzedmiot(numerKlasy, znakKlasy, NazwaPrzedmiotu, idNauczyciela);
+
+        boolean b;
+        b= ObecnyRocznik.addPrzedmiot(numerKlasy, znakKlasy, NazwaPrzedmiotu, idNauczyciela);
+        return b;
+    }
+    
+    public String[] printPrzedmioty(int numerKlasy , char znakKlasy) {
         
+        return ObecnyRocznik.printPrzedmioty(numerKlasy, znakKlasy);
     }
     
-    public void printPrzedmioty(int numerKlasy , char znakKlasy) {
-        ObecnyRocznik.printPrzedmioty(numerKlasy, znakKlasy);
-    }
-    
-    public void removePrzedmiot(int numerKlasy , char znakKlasy , String Nazwa) {
-        ObecnyRocznik.removePrzedmiot(numerKlasy, znakKlasy, Nazwa);
+    public boolean removePrzedmiot(int numerKlasy , char znakKlasy , String Nazwa) {
+
+        return ObecnyRocznik.removePrzedmiot(numerKlasy, znakKlasy, Nazwa);
     }
        
-    public void setIdWNauczyciela( int numerKlasy , char znakKlasy , 
+    public boolean setIdWNauczyciela( int numerKlasy , char znakKlasy , 
                                   String NazwaPrzedmiotu , int ID) {
-        ObecnyRocznik.setIdNauczyciela(numerKlasy, znakKlasy, NazwaPrzedmiotu, ID);
+
+        return ObecnyRocznik.setIdNauczyciela(numerKlasy, znakKlasy, NazwaPrzedmiotu, ID);
     }
     
-    public void printUczniowieNaPrzedmiocie (int numerKlasy , char znakKlasy ,String Nazwa){
-        ObecnyRocznik.printUczniowieNaPrzedmiocie(numerKlasy, znakKlasy, Nazwa);
+    public Uczen[] printUczniowieNaPrzedmiocie (int numerKlasy , char znakKlasy ,String Nazwa){
+        
+        return ObecnyRocznik.printUczniowieNaPrzedmiocie(numerKlasy, znakKlasy, Nazwa);
     }
     
     //metody pracujące najdalej z uczniem
-    public void addUczen (int numerKlasy , char znakKlasy ,String imie, String nazwisko){
-        ObecnyRocznik.addUczen(numerKlasy, znakKlasy ,imie,nazwisko);
+    public boolean addUczen (int numerKlasy , char znakKlasy ,String imie, String nazwisko){
+
+        return ObecnyRocznik.addUczen(numerKlasy, znakKlasy ,imie,nazwisko);
     }
     
-    public void setUczen (int numerKlasy, char znakKlasy ,int idUcznia, 
+    public boolean setUczen (int numerKlasy, char znakKlasy ,int idUcznia, 
                         Date DataUrodzenia , String Miejscowosc , 
                         String Ulica , int NrDomu ,
                         String KodPocztowy){
-        
-        
-        ObecnyRocznik.setUczen(numerKlasy, znakKlasy, idUcznia, DataUrodzenia,
+
+        boolean b;
+        b=ObecnyRocznik.setUczen(numerKlasy, znakKlasy, idUcznia, DataUrodzenia,
                 Miejscowosc, Ulica, NrDomu, KodPocztowy);
  
+        return b;
     }
     
-    public void printUczen (int numerKlasy, char znakKlasy ,int idUcznia) {
-        ObecnyRocznik.printUczen(numerKlasy, znakKlasy, idUcznia);
+    public Uczen printUczen (int numerKlasy, char znakKlasy ,int idUcznia) {
+       
+        Uczen u;
+        u=ObecnyRocznik.printUczen(numerKlasy, znakKlasy, idUcznia);
+        return u;
     }
     
-    public void printWszyscyUczniowieKlasy(int numerKlasy , char znakKlasy) {
-        ObecnyRocznik.printWszyscyUczniowie(numerKlasy, znakKlasy);
+    public Uczen[] printWszyscyUczniowieKlasy(int numerKlasy , char znakKlasy) {
+        
+        
+        Uczen[] u = ObecnyRocznik.printWszyscyUczniowie(numerKlasy, znakKlasy);
+        return u;
     }
     
-    public void removeUczen(int numerKlasy, char znakKlasy ,int idUcznia){
-        ObecnyRocznik.removeUczen(numerKlasy, znakKlasy, idUcznia);
+    public boolean removeUczen(int numerKlasy, char znakKlasy ,int idUcznia){
+        
+        return ObecnyRocznik.removeUczen(numerKlasy, znakKlasy, idUcznia);
     }
     
     
-    public void removeUczenZPrzedmiotu (int numerKlasy , char znakKlasy ,
+    public boolean removeUczenZPrzedmiotu (int numerKlasy , char znakKlasy ,
             String nazwa , int idUcznia) {
-        ObecnyRocznik.removeUczenZPrzedmiotu(numerKlasy, znakKlasy, nazwa, idUcznia);
+
+        return ObecnyRocznik.removeUczenZPrzedmiotu(numerKlasy, znakKlasy, nazwa, idUcznia);
     }
     
     //metody pracujące najdalej z oceną
     
-    public void addOcena(int numerKlasy, char znakKlasy,
+    public boolean addOcena(int numerKlasy, char znakKlasy,
             String Nazwa, double wartosc, int indeks){
         
-        ObecnyRocznik.addOcena(numerKlasy, znakKlasy, Nazwa, wartosc, indeks);
+       return ObecnyRocznik.addOcena(numerKlasy, znakKlasy, Nazwa, wartosc, indeks);
     }
     
-     public void printOcenyUcznia (int numerKlasy , char znakKlasy , 
+     public Ocena[] printOcenyUcznia (int numerKlasy , char znakKlasy , 
             String Nazwa , int indeks) {
-         ObecnyRocznik.printOcenyUcznia(numerKlasy, znakKlasy, Nazwa, indeks);
+
+        
+        return ObecnyRocznik.printOcenyUcznia(numerKlasy, znakKlasy, Nazwa, indeks);
      }
 }

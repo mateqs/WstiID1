@@ -17,6 +17,7 @@ public class Nauczyciel extends Osoba{
     private final int identyfikator;
     private static int kolejnyIdentyfikator = 1;
     
+    
     public Nauczyciel (String Imie , String Nazwisko){
         super(Imie,Nazwisko);
     identyfikator = kolejnyIdentyfikator++;
@@ -32,6 +33,7 @@ public class Nauczyciel extends Osoba{
     identyfikator = kolejnyIdentyfikator++;
     }
     
+    @Override
     public boolean setWszystkieDane (Date DataUrodzenia , 
                         String Miejscowosc , String Ulica , int NrDomu ,
                         String KodPocztowy ) {

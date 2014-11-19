@@ -19,8 +19,9 @@ public class Przedmiot {
     private LinkedList<Ocena> Oceny = new LinkedList();
     private LinkedList<Uczen> Uczniowie = new LinkedList();
     private int idNauczyciela;
-    //private ListaObecnosci <- może kiedys 
-    
+     
+
+     
     public Przedmiot ( String NazwaPrzedmiotu) {
         
         this.nazwa = NazwaPrzedmiotu;
@@ -36,13 +37,17 @@ public class Przedmiot {
         return nazwa;
     }
     
-    public void setNauczyciel(int idNauczyciela){
+    public boolean setNauczyciel(int idNauczyciela){
+        if (idNauczyciela >0){
         this.idNauczyciela = idNauczyciela;
+        return true;
+        }
+        else return false;
     }
     
-    public void dodajUcznia ( Uczen uczen) {
+    public boolean dodajUcznia ( Uczen uczen) {
         
-        Uczniowie.add(uczen);
+        return Uczniowie.add(uczen);
     }
     
     @Override
@@ -50,25 +55,41 @@ public class Przedmiot {
         return nazwa;
     }
     
-    public void addOcena(double wartosc , int indeks) {
-        Oceny.add(new Ocena(wartosc, indeks));
+    public boolean addOcena(double wartosc , int indeks) {
+        if(wartosc >= 0 && indeks >= 0)
+            return Oceny.add(new Ocena(wartosc, indeks));
+        else
+            return false;
     }
     
-    public void printOcenyUcznia ( int indeks){
+    public Ocena[] printOcenyUcznia ( int indeks){
     
-        for (Ocena o : Oceny) {
-            if(o.getIndeksUcznia() == indeks)
-                System.out.println(o);
+        LinkedList<Ocena> list = new LinkedList();
+        
+        for (Ocena oce : Oceny) {
+            if(oce.getIndeksUcznia() == indeks)
+                list.add(oce);
         }
-    }
-    
-    public void printUczniowie () {
-        for (Uczen u: Uczniowie) {
-            System.out.println(u);
+        
+        Ocena[] o = new Ocena[list.size()];
+        
+        for(int i = 0; i < list.size() ; i++){
+            o[i] = list.get(i);
         }
+        
+        return o;
     }
     
-    public void removeUczenZPrzedmiotu (int IdUcznia) {
+    public Uczen[] printUczniowie () {
+        Uczen[] u = new Uczen[Uczniowie.size()];
+        
+        for (int i =0 ; i < Uczniowie.size() ; i++ ) {
+            u[i] = Uczniowie.get(i);
+        }
+        return u;
+    }
+    
+    public boolean removeUczenZPrzedmiotu (int IdUcznia) {
     
         boolean znaleziono = false;
         int i =0;
@@ -82,7 +103,10 @@ public class Przedmiot {
                 i++;
             
         }
-        if (znaleziono)
+        if (znaleziono){
             Uczniowie.remove(i);
+            return true;
+        }
+        else return false;
     }
 }
