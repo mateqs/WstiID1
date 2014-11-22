@@ -49,6 +49,9 @@ public class Dziennik {
     
     public boolean addNauczyciel (String Imie , String Nazwisko) {
 
+        Imie = Imie.toUpperCase();
+        Nazwisko= Nazwisko.toUpperCase();
+        
         Nauczyciele.add(new Nauczyciel(Imie, Nazwisko));
         return true;
     }
@@ -62,6 +65,7 @@ public class Dziennik {
             
         return TabNauczycieli; 
     }
+
     
         //Zwraca true w momencie poprawnego ustawienia wszystkich danych
     public boolean setNauczycielWszystkieDane (int idNauczyciela, Date DataUrodzenia , 
@@ -103,7 +107,7 @@ public class Dziennik {
                   
     }
     
-    private Nauczyciel getNauczyciel (int idNauczyciela) {
+    public Nauczyciel getNauczyciel (int idNauczyciela) {
         
         boolean znaleziono = false;
         int i =0;
@@ -125,7 +129,7 @@ public class Dziennik {
     }
     
     
-    //Metody pracujące najdalej z rocznikiem / (przerobić na metody nieme)
+    //Metody pracujące najdalej z rocznikiem 
     
     public String printRokSzkolny() {
         
@@ -228,26 +232,32 @@ public class Dziennik {
     
     public boolean addKlasa(int numerKlasy, char znakKlasy, int idWychowawcy) {
 
+        znakKlasy = Character.toUpperCase(znakKlasy);
         return ObecnyRocznik.addKlasa(numerKlasy, znakKlasy, idWychowawcy);
         
     }
    
     public Klasa printKlasa (int numerKlasy, char znakKlasy) {
 
+        znakKlasy = Character.toUpperCase(znakKlasy);
         return ObecnyRocznik.getKlasa(numerKlasy, znakKlasy);
     }
                 
+    public Klasa[] printWszystkieKlasy(){
+        return ObecnyRocznik.printWszystkieKlasy();
+    }
+    
     public boolean setIdWychowawcy (int numerKlasy , char znakKlasy , int noweID) {
     
         boolean b;
-        
+        znakKlasy = Character.toUpperCase(znakKlasy);
         b= ObecnyRocznik.setIdWychowawcy( numerKlasy ,  znakKlasy ,  noweID);
     
         return b;
     }
     
     public boolean removeKlasa (int numerKlasy , char znakKlasy) {
-   
+    znakKlasy = Character.toUpperCase(znakKlasy);
     return ObecnyRocznik.removeKlasa(numerKlasy, znakKlasy);
     }
     
@@ -256,36 +266,43 @@ public class Dziennik {
     public boolean addPrzedmiot (int numerKlasy, char znakKlasy ,
                              String NazwaPrzedmiotu, int idNauczyciela) {
 
+        znakKlasy = Character.toUpperCase(znakKlasy);
+        NazwaPrzedmiotu=NazwaPrzedmiotu.toUpperCase();
         boolean b;
         b= ObecnyRocznik.addPrzedmiot(numerKlasy, znakKlasy, NazwaPrzedmiotu, idNauczyciela);
         return b;
     }
     
     public String[] printPrzedmioty(int numerKlasy , char znakKlasy) {
-        
+        znakKlasy = Character.toUpperCase(znakKlasy);
         return ObecnyRocznik.printPrzedmioty(numerKlasy, znakKlasy);
     }
     
     public boolean removePrzedmiot(int numerKlasy , char znakKlasy , String Nazwa) {
-
+        znakKlasy = Character.toUpperCase(znakKlasy);
+        Nazwa=Nazwa.toUpperCase();
         return ObecnyRocznik.removePrzedmiot(numerKlasy, znakKlasy, Nazwa);
     }
        
-    public boolean setIdWNauczyciela( int numerKlasy , char znakKlasy , 
+    public boolean setIdNauczyciela( int numerKlasy , char znakKlasy , 
                                   String NazwaPrzedmiotu , int ID) {
-
+        znakKlasy = Character.toUpperCase(znakKlasy);
+        NazwaPrzedmiotu=NazwaPrzedmiotu.toUpperCase();
         return ObecnyRocznik.setIdNauczyciela(numerKlasy, znakKlasy, NazwaPrzedmiotu, ID);
     }
     
+    //metody pracujące najdalej z uczniem
+    
     public Uczen[] printUczniowieNaPrzedmiocie (int numerKlasy , char znakKlasy ,String Nazwa){
-        
+        znakKlasy = Character.toUpperCase(znakKlasy);
+        Nazwa=Nazwa.toUpperCase();
         return ObecnyRocznik.printUczniowieNaPrzedmiocie(numerKlasy, znakKlasy, Nazwa);
     }
     
-    //metody pracujące najdalej z uczniem
     public boolean addUczen (int numerKlasy , char znakKlasy ,String imie, String nazwisko){
 
-        return ObecnyRocznik.addUczen(numerKlasy, znakKlasy ,imie,nazwisko);
+        znakKlasy=Character.toUpperCase(znakKlasy);
+        return ObecnyRocznik.addUczen(numerKlasy, znakKlasy ,imie.toUpperCase(),nazwisko.toUpperCase());
     }
     
     public boolean setUczen (int numerKlasy, char znakKlasy ,int idUcznia, 
@@ -294,6 +311,7 @@ public class Dziennik {
                         String KodPocztowy){
 
         boolean b;
+        znakKlasy=Character.toUpperCase(znakKlasy);
         b=ObecnyRocznik.setUczen(numerKlasy, znakKlasy, idUcznia, DataUrodzenia,
                 Miejscowosc, Ulica, NrDomu, KodPocztowy);
  
@@ -303,41 +321,42 @@ public class Dziennik {
     public Uczen printUczen (int numerKlasy, char znakKlasy ,int idUcznia) {
        
         Uczen u;
+        znakKlasy=Character.toUpperCase(znakKlasy);
         u=ObecnyRocznik.printUczen(numerKlasy, znakKlasy, idUcznia);
         return u;
     }
     
     public Uczen[] printWszyscyUczniowieKlasy(int numerKlasy , char znakKlasy) {
         
-        
+        znakKlasy=Character.toUpperCase(znakKlasy);
         Uczen[] u = ObecnyRocznik.printWszyscyUczniowie(numerKlasy, znakKlasy);
         return u;
     }
     
     public boolean removeUczen(int numerKlasy, char znakKlasy ,int idUcznia){
-        
+        znakKlasy=Character.toUpperCase(znakKlasy);
         return ObecnyRocznik.removeUczen(numerKlasy, znakKlasy, idUcznia);
     }
     
     
     public boolean removeUczenZPrzedmiotu (int numerKlasy , char znakKlasy ,
             String nazwa , int idUcznia) {
-
-        return ObecnyRocznik.removeUczenZPrzedmiotu(numerKlasy, znakKlasy, nazwa, idUcznia);
+        znakKlasy=Character.toUpperCase(znakKlasy);
+        return ObecnyRocznik.removeUczenZPrzedmiotu(numerKlasy, znakKlasy, nazwa.toUpperCase(), idUcznia);
     }
     
     //metody pracujące najdalej z oceną
     
     public boolean addOcena(int numerKlasy, char znakKlasy,
             String Nazwa, double wartosc, int indeks){
-        
-       return ObecnyRocznik.addOcena(numerKlasy, znakKlasy, Nazwa, wartosc, indeks);
+        znakKlasy=Character.toUpperCase(znakKlasy);
+       return ObecnyRocznik.addOcena(numerKlasy, znakKlasy, Nazwa.toUpperCase(), wartosc, indeks);
     }
     
      public Ocena[] printOcenyUcznia (int numerKlasy , char znakKlasy , 
             String Nazwa , int indeks) {
 
-        
-        return ObecnyRocznik.printOcenyUcznia(numerKlasy, znakKlasy, Nazwa, indeks);
+        znakKlasy=Character.toUpperCase(znakKlasy);
+        return ObecnyRocznik.printOcenyUcznia(numerKlasy, znakKlasy, Nazwa.toUpperCase(), indeks);
      }
 }

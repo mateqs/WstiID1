@@ -25,7 +25,7 @@ public class Przedmiot {
     public Przedmiot ( String NazwaPrzedmiotu) {
         
         this.nazwa = NazwaPrzedmiotu;
-       
+        
     }
     public Przedmiot ( String NazwaPrzedmiotu , int IdNauczyciela) {
         
@@ -56,7 +56,7 @@ public class Przedmiot {
     }
     
     public boolean addOcena(double wartosc , int indeks) {
-        if(wartosc >= 0 && indeks >= 0)
+        if(wartosc >= 0 && wartosc < 6 && indeks >= 0)
             return Oceny.add(new Ocena(wartosc, indeks));
         else
             return false;

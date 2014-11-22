@@ -20,7 +20,7 @@ public class Klasa {
     private int idWychowawcy;
     private  LinkedList<Przedmiot> Przedmioty = new LinkedList();  
     private  LinkedList<Uczen> uczniowie =new LinkedList();
-    private boolean domyslnePrzedmioty;
+    
     
    
     Klasa(int NumerKlasy ,char ZnakKlasy , int IdWychowawcy ) {
@@ -28,14 +28,14 @@ public class Klasa {
         this.numerKlasy = NumerKlasy;
         this.znakKlasy = ZnakKlasy;
         this.idWychowawcy = IdWychowawcy;
-        this.domyslnePrzedmioty = false;
+        this.addDomyslnePrzedmioty();
     }
     
     Klasa(int NumerKlasy ,char ZnakKlasy ) {
         
         this.numerKlasy = NumerKlasy;
         this.znakKlasy = ZnakKlasy;
-        this.domyslnePrzedmioty = false;
+        this.addDomyslnePrzedmioty();
     }
     
     
@@ -79,8 +79,6 @@ public class Klasa {
     }
     
     public void zaladujPrzykladoweDane() {
-        
-        this.addDomyslnePrzedmioty();
         
         addUczen("Mateusz", "Adamus");
         addUczen("Jakub", "Sławiński");
@@ -136,7 +134,7 @@ public class Klasa {
         
         Uczen [] lista = new Uczen [uczniowie.size()];
         
-        for ( int i =9 ; i < uczniowie.size() ; i++ ) {
+        for ( int i =0 ; i < uczniowie.size() ; i++ ) {
             lista[i] = uczniowie.get(i);
         }
         
@@ -255,24 +253,21 @@ public class Klasa {
     // Metody do Przedmiotów
         
     public void addDomyslnePrzedmioty(){
-        if (domyslnePrzedmioty == false) {
             
-            Przedmioty.add(new Przedmiot("Polski"));
-            Przedmioty.add(new Przedmiot("Matematyka"));
-            Przedmioty.add(new Przedmiot("Informatyka"));
-            Przedmioty.add(new Przedmiot("Chemia"));
-            Przedmioty.add(new Przedmiot("Język Obcy"));
-            Przedmioty.add(new Przedmiot("Wychowanie Fizyczne"));
-            Przedmioty.add(new Przedmiot("Religia"));
-            Przedmioty.add(new Przedmiot("Technika"));
-            Przedmioty.add(new Przedmiot("Historia"));
-            Przedmioty.add(new Przedmiot("Geografia"));
-            Przedmioty.add(new Przedmiot("Biologia"));
-            Przedmioty.add(new Przedmiot("Muzyka"));
-            Przedmioty.add(new Przedmiot("Fizyka"));
-            Przedmioty.add(new Przedmiot("Plastyka"));
-            domyslnePrzedmioty = true;
-        }
+            Przedmioty.add(new Przedmiot("POLSKI"));
+            Przedmioty.add(new Przedmiot("MATEMATYKA"));
+            Przedmioty.add(new Przedmiot("INFORMATYKA"));
+            Przedmioty.add(new Przedmiot("CHEMIA"));
+            Przedmioty.add(new Przedmiot("JĘCYK OBCY"));
+            Przedmioty.add(new Przedmiot("WYCHOWANIE FIZYCZNE"));
+            Przedmioty.add(new Przedmiot("RELIGIA"));
+            Przedmioty.add(new Przedmiot("TECHNIKA"));
+            Przedmioty.add(new Przedmiot("HISTORIA"));
+            Przedmioty.add(new Przedmiot("GEOGRAFIA"));
+            Przedmioty.add(new Przedmiot("BIOLOGIA"));
+            Przedmioty.add(new Przedmiot("MUZYKA"));
+            Przedmioty.add(new Przedmiot("FIZYKA"));
+            Przedmioty.add(new Przedmiot("PLASTYKA"));
         
     }
     

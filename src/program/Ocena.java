@@ -34,7 +34,7 @@ public class Ocena {
         DateFormat df = new SimpleDateFormat("d MMMM yyyy  H:m");
         String d = df.format(data.getTime());
         
-        return "Ocena: "+Double.toString(Ocena) +" Uczen: " + indeksUcznia  + " \n" + d;
+        return "Ocena: "+Double.toString(Ocena) +" \n" + d;
     }
     
     public double getOcena() {

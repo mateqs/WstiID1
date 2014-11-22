@@ -63,12 +63,13 @@ public class RokSzkolny {
 
         if (czyKlasaIstnieje(numerKlasy, znakKlasy)) 
             return false;
-
-        else {
-            
-            klasy.add(new Klasa(numerKlasy, znakKlasy, idWychowawcy));
-            return true;
-        }
+        for ( Klasa k: klasy){
+            if(idWychowawcy == k.getIdWychowawcy())
+                return false;
+        }    
+        
+        return klasy.add(new Klasa(numerKlasy, znakKlasy, idWychowawcy));
+        
     }
     
     private boolean czyKlasaIstnieje(int numerKlasy, char znakKlasy) {
@@ -126,6 +127,12 @@ public class RokSzkolny {
    
     
     public boolean setIdWychowawcy(int numerKlasy , char znakKlasy , int noweID) {
+        
+        for ( Klasa k: klasy){
+            if(noweID == k.getIdWychowawcy())
+                return false;
+        }
+        
         Klasa k = getKlasa(numerKlasy, znakKlasy);
         return k.setWychowawca(noweID);
     }
@@ -136,6 +143,17 @@ public class RokSzkolny {
             return true;
         }
         else return false;
+    }
+    
+    public Klasa[] printWszystkieKlasy() {
+        
+        Klasa [] k = new Klasa[klasy.size()];
+        
+        for (int i=0 ; i<klasy.size(); i++){
+            k[i]=klasy.get(i);
+        }
+        
+        return k;
     }
     
     public int getIloscKlas(){

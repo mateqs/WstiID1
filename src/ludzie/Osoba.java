@@ -30,18 +30,18 @@ public class Osoba {
     
     public Osoba ( String Imie , String Nazwisko) {
         
-        this.imie = Imie;
-        this.nazwisko = Nazwisko;
+        this.imie = Imie.toUpperCase();
+        this.nazwisko = Nazwisko.toUpperCase();
     }
     public Osoba (String Imie, String Nazwisko , Date DataUrodzenia , 
                         String Miejscowosc , String Ulica , int NrDomu ,
                         String KodPocztowy) 
     {   
-    this.imie = Imie;
-    this.nazwisko = Nazwisko;
+    this.imie = Imie.toUpperCase();
+    this.nazwisko = Nazwisko.toUpperCase();
     this.dataUrodzenia = DataUrodzenia;
-    this.miejscowosc = Miejscowosc ;
-    this.ulica = Ulica;
+    this.miejscowosc = Miejscowosc.toUpperCase() ;
+    this.ulica = Ulica.toUpperCase();
     this.nrDomu = NrDomu;
     this.kodPocztowy = KodPocztowy;
     }
@@ -61,9 +61,9 @@ public class Osoba {
     if (DataUrodzenia != null)
         this.dataUrodzenia = DataUrodzenia;
     if ( Miejscowosc != null)
-        this.miejscowosc = Miejscowosc ;
+        this.miejscowosc = Miejscowosc.toUpperCase() ;
     if (Ulica != null)
-        this.ulica = Ulica;
+        this.ulica = Ulica.toUpperCase();
     if (NrDomu != -1)
         this.nrDomu = NrDomu;
     if ( KodPocztowy != null)
@@ -95,7 +95,7 @@ public class Osoba {
         
         if(czyWszystkieDane()) {
             
-        DateFormat df = new SimpleDateFormat("d MMMM yyyy  H-m");
+        DateFormat df = new SimpleDateFormat("d MMMM yyyy  H:m");
         String data = df.format(dataUrodzenia.getTime());
             
         StringBuilder napis = new  StringBuilder (
@@ -110,6 +110,6 @@ public class Osoba {
         else 
             return imie +" " + nazwisko;
     }
+
     
-  
 }
