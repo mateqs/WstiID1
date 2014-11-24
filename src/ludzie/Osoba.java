@@ -95,7 +95,7 @@ public class Osoba {
         
         if(czyWszystkieDane()) {
             
-        DateFormat df = new SimpleDateFormat("d MMMM yyyy  H:m");
+        DateFormat df = new SimpleDateFormat("d MMMM yyyy");
         String data = df.format(dataUrodzenia.getTime());
             
         StringBuilder napis = new  StringBuilder (

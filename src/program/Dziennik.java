@@ -20,14 +20,22 @@ public class Dziennik {
     private LinkedList<RokSzkolny> WszystkieRoczniki = new LinkedList();
     private RokSzkolny ObecnyRocznik;
     private LinkedList<Nauczyciel> Nauczyciele = new LinkedList();
+    private static Dziennik instancja= null;
     
-    Dziennik() {
+    private Dziennik() {
         RokSzkolny rok = new RokSzkolny();
         WszystkieRoczniki.add(rok);
         ObecnyRocznik = rok;
         
     }
-
+    
+    public static Dziennik getInstance() {
+        if(instancja == null)
+            instancja = new Dziennik();
+        
+        return instancja;
+    }
+    
     public void zaladujPrzykladoweDane() {
         
         addNauczyciel(new Nauczyciel("Jan", "Kowalski"));
@@ -291,13 +299,18 @@ public class Dziennik {
         return ObecnyRocznik.setIdNauczyciela(numerKlasy, znakKlasy, NazwaPrzedmiotu, ID);
     }
     
-    //metody pracujące najdalej z uczniem
-    
     public Uczen[] printUczniowieNaPrzedmiocie (int numerKlasy , char znakKlasy ,String Nazwa){
         znakKlasy = Character.toUpperCase(znakKlasy);
         Nazwa=Nazwa.toUpperCase();
         return ObecnyRocznik.printUczniowieNaPrzedmiocie(numerKlasy, znakKlasy, Nazwa);
     }
+    
+    public boolean removeUczenZPrzedmiotu (int numerKlasy , char znakKlasy ,
+            String nazwa , int idUcznia) {
+        znakKlasy=Character.toUpperCase(znakKlasy);
+        return ObecnyRocznik.removeUczenZPrzedmiotu(numerKlasy, znakKlasy, nazwa.toUpperCase(), idUcznia);
+    }
+    //metody pracujące najdalej z uczniem
     
     public boolean addUczen (int numerKlasy , char znakKlasy ,String imie, String nazwisko){
 
@@ -339,11 +352,7 @@ public class Dziennik {
     }
     
     
-    public boolean removeUczenZPrzedmiotu (int numerKlasy , char znakKlasy ,
-            String nazwa , int idUcznia) {
-        znakKlasy=Character.toUpperCase(znakKlasy);
-        return ObecnyRocznik.removeUczenZPrzedmiotu(numerKlasy, znakKlasy, nazwa.toUpperCase(), idUcznia);
-    }
+    
     
     //metody pracujące najdalej z oceną
     

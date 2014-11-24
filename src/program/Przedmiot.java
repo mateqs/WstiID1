@@ -19,7 +19,7 @@ public class Przedmiot {
     private LinkedList<Ocena> Oceny = new LinkedList();
     private LinkedList<Uczen> Uczniowie = new LinkedList();
     private int idNauczyciela;
-     
+   
 
      
     public Przedmiot ( String NazwaPrzedmiotu) {

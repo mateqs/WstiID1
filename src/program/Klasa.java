@@ -87,9 +87,8 @@ public class Klasa {
         addUczen("Damian", "Kawiecki");
         addUczen("Kamil", "Bieganowski");
         
-        zapiszWszystkichNaWszystkiePrzedmioty();
-        
-        // wstawianie dowolnych ocen
+              
+        // jakieś tam oceny, bez znaczenia
         
         for ( Przedmiot p : Przedmioty) {
             for (double i = 1 ; i <=6 ; i +=0.5)
