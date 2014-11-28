@@ -58,6 +58,7 @@ public class RokSzkolny {
       
     }
     //metody pracujące najdalej z klasą
+
     
     public boolean addKlasa(int numerKlasy, char znakKlasy, int idWychowawcy) {
 

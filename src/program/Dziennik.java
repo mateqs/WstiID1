@@ -20,6 +20,7 @@ public class Dziennik {
     private LinkedList<RokSzkolny> WszystkieRoczniki = new LinkedList();
     private RokSzkolny ObecnyRocznik;
     private LinkedList<Nauczyciel> Nauczyciele = new LinkedList();
+    private boolean przykladoweDane = false;
     
     Dziennik() {
         RokSzkolny rok = new RokSzkolny();
@@ -37,8 +38,13 @@ public class Dziennik {
         addNauczyciel(new Nauczyciel("Krzesław", "Cokolwiek"));
         addNauczyciel(new Nauczyciel("Adam", "Cokolwiek"));
         ObecnyRocznik.zaladujPrzykladoweDane();
+        przykladoweDane = true;
     }
-        
+
+    public boolean isPrzykladoweDane() {
+        return przykladoweDane;
+    }
+           
     //metody pracujące najdalej z nauczycielem
     
     public boolean addNauczyciel(Nauczyciel nauczycielObj) {

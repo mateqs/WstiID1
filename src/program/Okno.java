@@ -1,9 +1,12 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package program;
+
+import java.awt.Component;
+import java.awt.event.ActionEvent;
+import javax.swing.JButton;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+import ludzie.Nauczyciel;
 
 /**
  *
@@ -16,6 +19,7 @@ public class Okno extends javax.swing.JFrame {
      */
     public Okno() {
         initComponents();
+        setTitle("Dziennik");
     }
 
     /**
@@ -27,35 +31,401 @@ public class Okno extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
+        jFrame1 = new javax.swing.JFrame();
+        KartyProgramu = new javax.swing.JTabbedPane();
+        NauczycieleTab = new javax.swing.JPanel();
+        TabelaNauczycieli = new javax.swing.JScrollPane();
+        NauczycieleTabela = new javax.swing.JTable();
+        NauczycieleDodaj = new javax.swing.JButton();
+        NauczycieleUsun = new javax.swing.JButton();
+        NauczycieleUstaw = new javax.swing.JButton();
+        KlasyTab = new javax.swing.JPanel();
+        jScrollPane5 = new javax.swing.JScrollPane();
+        jTable5 = new javax.swing.JTable();
+        KlasyDodaj = new javax.swing.JButton();
+        KlasyUsun = new javax.swing.JButton();
+        KlasyUstaw = new javax.swing.JButton();
+        PrzedmiotyTab = new javax.swing.JPanel();
+        jScrollPane6 = new javax.swing.JScrollPane();
+        jTable6 = new javax.swing.JTable();
+        jButton16 = new javax.swing.JButton();
+        jButton17 = new javax.swing.JButton();
+        jButton18 = new javax.swing.JButton();
+        UczniowieTab = new javax.swing.JPanel();
+        jScrollPane7 = new javax.swing.JScrollPane();
+        jTable7 = new javax.swing.JTable();
+        jButton19 = new javax.swing.JButton();
+        jButton20 = new javax.swing.JButton();
+        jButton21 = new javax.swing.JButton();
+        jMenuBar1 = new javax.swing.JMenuBar();
+        program = new javax.swing.JMenu();
+        PrzykladoweDaneMenu = new javax.swing.JCheckBoxMenuItem();
+        Odswież = new javax.swing.JMenuItem();
+        jMenu2 = new javax.swing.JMenu();
+
+        javax.swing.GroupLayout jFrame1Layout = new javax.swing.GroupLayout(jFrame1.getContentPane());
+        jFrame1.getContentPane().setLayout(jFrame1Layout);
+        jFrame1Layout.setHorizontalGroup(
+            jFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 400, Short.MAX_VALUE)
+        );
+        jFrame1Layout.setVerticalGroup(
+            jFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 300, Short.MAX_VALUE)
+        );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(600, 500));
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 686, Short.MAX_VALUE)
+        KartyProgramu.setPreferredSize(new java.awt.Dimension(600, 500));
+
+        NauczycieleTabela.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Id", "Imie", "Nazwisko", "Dodatkowe dane"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        TabelaNauczycieli.setViewportView(NauczycieleTabela);
+
+        NauczycieleDodaj.setText("Dodaj");
+        NauczycieleDodaj.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                NauczycieleDodajActionPerformed(evt);
+            }
+        });
+
+        NauczycieleUsun.setText("Usuń");
+
+        NauczycieleUstaw.setText("Ustaw dodatkowe dane");
+        NauczycieleUstaw.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                NauczycieleUstawActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout NauczycieleTabLayout = new javax.swing.GroupLayout(NauczycieleTab);
+        NauczycieleTab.setLayout(NauczycieleTabLayout);
+        NauczycieleTabLayout.setHorizontalGroup(
+            NauczycieleTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(NauczycieleTabLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(NauczycieleTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(TabelaNauczycieli, javax.swing.GroupLayout.DEFAULT_SIZE, 575, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, NauczycieleTabLayout.createSequentialGroup()
+                        .addComponent(NauczycieleDodaj, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(NauczycieleUsun, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(NauczycieleUstaw, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addContainerGap())
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 466, Short.MAX_VALUE)
+        NauczycieleTabLayout.setVerticalGroup(
+            NauczycieleTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, NauczycieleTabLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(NauczycieleTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(NauczycieleDodaj, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(NauczycieleUsun, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(NauczycieleUstaw, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(TabelaNauczycieli, javax.swing.GroupLayout.DEFAULT_SIZE, 395, Short.MAX_VALUE)
+                .addContainerGap())
         );
+
+        KartyProgramu.addTab("Nauczyciele", NauczycieleTab);
+
+        jTable5.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Id", "Znak", "Wychowawca"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.Integer.class, java.lang.String.class, java.lang.String.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
+        jScrollPane5.setViewportView(jTable5);
+
+        KlasyDodaj.setText("Dodaj");
+        KlasyDodaj.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                KlasyDodajActionPerformed(evt);
+            }
+        });
+
+        KlasyUsun.setText("Usuń");
+
+        KlasyUstaw.setText("Ustaw wychowawcę");
+
+        javax.swing.GroupLayout KlasyTabLayout = new javax.swing.GroupLayout(KlasyTab);
+        KlasyTab.setLayout(KlasyTabLayout);
+        KlasyTabLayout.setHorizontalGroup(
+            KlasyTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(KlasyTabLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(KlasyTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 575, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, KlasyTabLayout.createSequentialGroup()
+                        .addComponent(KlasyDodaj, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(KlasyUsun, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(KlasyUstaw, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addContainerGap())
+        );
+        KlasyTabLayout.setVerticalGroup(
+            KlasyTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, KlasyTabLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(KlasyTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(KlasyDodaj, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(KlasyUsun, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(KlasyUstaw, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 395, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
+        KartyProgramu.addTab("Klasy", KlasyTab);
+
+        jTable6.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Id", "Znak", "Nauczyciel"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.Integer.class, java.lang.String.class, java.lang.String.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
+        jScrollPane6.setViewportView(jTable6);
+
+        jButton16.setText("Dodaj");
+
+        jButton17.setText("Usuń");
+
+        jButton18.setText("Ustaw nauczyciela");
+
+        javax.swing.GroupLayout PrzedmiotyTabLayout = new javax.swing.GroupLayout(PrzedmiotyTab);
+        PrzedmiotyTab.setLayout(PrzedmiotyTabLayout);
+        PrzedmiotyTabLayout.setHorizontalGroup(
+            PrzedmiotyTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(PrzedmiotyTabLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(PrzedmiotyTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane6, javax.swing.GroupLayout.DEFAULT_SIZE, 575, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PrzedmiotyTabLayout.createSequentialGroup()
+                        .addComponent(jButton16, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jButton17, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButton18, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addContainerGap())
+        );
+        PrzedmiotyTabLayout.setVerticalGroup(
+            PrzedmiotyTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PrzedmiotyTabLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(PrzedmiotyTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton16, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButton17, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButton18, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane6, javax.swing.GroupLayout.DEFAULT_SIZE, 395, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
+        KartyProgramu.addTab("Przedmioty", PrzedmiotyTab);
+
+        jTable7.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Id", "Znak", "Dodatkowe dane"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.Integer.class, java.lang.String.class, java.lang.String.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
+        jScrollPane7.setViewportView(jTable7);
+
+        jButton19.setText("Dodaj");
+
+        jButton20.setText("Usuń");
+
+        jButton21.setText("Ustaw dodatkowe dane");
+
+        javax.swing.GroupLayout UczniowieTabLayout = new javax.swing.GroupLayout(UczniowieTab);
+        UczniowieTab.setLayout(UczniowieTabLayout);
+        UczniowieTabLayout.setHorizontalGroup(
+            UczniowieTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(UczniowieTabLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(UczniowieTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane7, javax.swing.GroupLayout.DEFAULT_SIZE, 575, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, UczniowieTabLayout.createSequentialGroup()
+                        .addComponent(jButton19, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jButton20, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButton21, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addContainerGap())
+        );
+        UczniowieTabLayout.setVerticalGroup(
+            UczniowieTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, UczniowieTabLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(UczniowieTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton19, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButton20, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButton21, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane7, javax.swing.GroupLayout.DEFAULT_SIZE, 395, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
+        KartyProgramu.addTab("Uczniowie", UczniowieTab);
+
+        program.setText("Program");
+        program.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                programActionPerformed(evt);
+            }
+        });
+
+        PrzykladoweDaneMenu.setText("Załaduj przykładowe dane");
+        PrzykladoweDaneMenu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                PrzykladoweDaneMenuActionPerformed(evt);
+            }
+        });
+        program.add(PrzykladoweDaneMenu);
+
+        Odswież.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F5, 0));
+        Odswież.setText("Odśwież tabele");
+        Odswież.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                OdswieżActionPerformed(evt);
+            }
+        });
+        program.add(Odswież);
+
+        jMenuBar1.add(program);
+
+        jMenu2.setText("Rok szkolny");
+        jMenuBar1.add(jMenu2);
+
+        setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(KartyProgramu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(KartyProgramu, javax.swing.GroupLayout.DEFAULT_SIZE, 479, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void PrzykladoweDaneMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PrzykladoweDaneMenuActionPerformed
+
+        if (PrzykladoweDaneMenu.isSelected()) {
+            dziennik.zaladujPrzykladoweDane();
+            PrzykladoweDaneMenu.setSelected(true);
+            PrzykladoweDaneMenu.setEnabled(false);
+        }
+                
+        this.OdswieżActionPerformed(evt);
+    }//GEN-LAST:event_PrzykladoweDaneMenuActionPerformed
+
+    private void NauczycieleUstawActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NauczycieleUstawActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_NauczycieleUstawActionPerformed
+
+    private void NauczycieleDodajActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NauczycieleDodajActionPerformed
+
+        String imie =   JOptionPane.showInputDialog(this, "Podaj imię nowego nauczyciela:");
+        String nazwisko =   JOptionPane.showInputDialog(this, "Podaj nazwisko nowego nauczyciela:");
+        
+        if(imie != null && nazwisko!= null){
+        
+            Nauczyciel nowy = new Nauczyciel(imie, nazwisko);
+            
+            dziennik.addNauczyciel(nowy);
+            
+            DefaultTableModel tabela = (DefaultTableModel) NauczycieleTabela.getModel();
+            
+            tabela.addRow(new Object [] {nowy.getIdentyfikator(),nowy.getImie() , nowy.getNazwisko() } );
+        
+        }
+    }//GEN-LAST:event_NauczycieleDodajActionPerformed
+
+    private void OdswieżActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_OdswieżActionPerformed
+        
+        
+         DefaultTableModel tabela = (DefaultTableModel) NauczycieleTabela.getModel();
+      //TODO dodać resztę
+
+      while (tabela.getRowCount() >0)
+          tabela.removeRow(0);
+      
+      Nauczyciel[] nauczyciele = dziennik.printNauczyciele();
+      
+      for(Nauczyciel n : nauczyciele) {
+          tabela.addRow(new Object [] {n.getIdentyfikator(),n.getImie() , n.getNazwisko() } );
+      }
+      
+    }//GEN-LAST:event_OdswieżActionPerformed
+
+    private void programActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_programActionPerformed
+
+        // TODO add your handling code here:
+     
+
+    }//GEN-LAST:event_programActionPerformed
+
+    private void KlasyDodajActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_KlasyDodajActionPerformed
+
+        
+            }//GEN-LAST:event_KlasyDodajActionPerformed
 
     /**
      * @param args the command line arguments
@@ -92,9 +462,40 @@ public class Okno extends javax.swing.JFrame {
             
         });
     }
-
+    
+    private static Dziennik dziennik = new Dziennik();
    
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel jPanel1;
+    private javax.swing.JTabbedPane KartyProgramu;
+    private javax.swing.JButton KlasyDodaj;
+    private javax.swing.JPanel KlasyTab;
+    private javax.swing.JButton KlasyUstaw;
+    private javax.swing.JButton KlasyUsun;
+    private javax.swing.JButton NauczycieleDodaj;
+    private javax.swing.JPanel NauczycieleTab;
+    private javax.swing.JTable NauczycieleTabela;
+    private javax.swing.JButton NauczycieleUstaw;
+    private javax.swing.JButton NauczycieleUsun;
+    private javax.swing.JMenuItem Odswież;
+    private javax.swing.JPanel PrzedmiotyTab;
+    private javax.swing.JCheckBoxMenuItem PrzykladoweDaneMenu;
+    private javax.swing.JScrollPane TabelaNauczycieli;
+    private javax.swing.JPanel UczniowieTab;
+    private javax.swing.JButton jButton16;
+    private javax.swing.JButton jButton17;
+    private javax.swing.JButton jButton18;
+    private javax.swing.JButton jButton19;
+    private javax.swing.JButton jButton20;
+    private javax.swing.JButton jButton21;
+    private javax.swing.JFrame jFrame1;
+    private javax.swing.JMenu jMenu2;
+    private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JScrollPane jScrollPane5;
+    private javax.swing.JScrollPane jScrollPane6;
+    private javax.swing.JScrollPane jScrollPane7;
+    private javax.swing.JTable jTable5;
+    private javax.swing.JTable jTable6;
+    private javax.swing.JTable jTable7;
+    private javax.swing.JMenu program;
     // End of variables declaration//GEN-END:variables
 }

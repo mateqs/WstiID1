@@ -72,6 +72,14 @@ public class Osoba {
     
     return this.czyWszystkieDane();
     }
+
+    public String getImie() {
+        return imie;
+    }
+
+    public String getNazwisko() {
+        return nazwisko;
+    }
     
     
     
