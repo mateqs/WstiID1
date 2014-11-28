@@ -210,9 +210,9 @@ public class RokSzkolny {
     public boolean addPrzedmiot(int numerKlasy, char znakKlasy ,
                             String NazwaPrzedmiotu, int idNauczyciela){
         Klasa k = getKlasa(numerKlasy, znakKlasy);
-        
-        k.addPrzedmiot(NazwaPrzedmiotu, idNauczyciela);
-        return true;
+        if(k!= null)
+            return k.addPrzedmiot(NazwaPrzedmiotu, idNauczyciela);
+        else return false;
     }
     
     public String [] printPrzedmioty( int numerKlasy , char znakKlasy) {

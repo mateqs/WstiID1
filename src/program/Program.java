@@ -13,7 +13,7 @@ public class Program {
     
     public static void main(String[] args) {
 
-        Konsola konsola = new Konsola(true);
+        Konsola konsola = new Konsola();
 
     }
     
@@ -124,7 +124,7 @@ class Konsola {
                 switch(arg[i]){
                     
                     case '1':
-                        
+                        System.out.println("Dodawanie nauczyciela");
                         System.out.print("Podaj imie:");
                         String Imie = in.nextLine();
                         System.out.print("Podaj nazwisko:");
@@ -284,7 +284,7 @@ setNauczycielWszystkieDane(id,new Date(rok-1900, miesiac-1, dzien), miejscowosc,
     
     private void uczniowie(){
             
-        //TODO dokończyć
+        
         
         Scanner in = new Scanner(System.in);
         boolean b;
@@ -294,7 +294,7 @@ setNauczycielWszystkieDane(id,new Date(rok-1900, miesiac-1, dzien), miejscowosc,
         int id;
         Uczen[] tabela;
         
-        //TODO dziwinie to brzmi xD
+        
         System.out.println("Jakie działania chcesz wykonać na uczniach?\n");
         
         
@@ -380,6 +380,7 @@ setNauczycielWszystkieDane(id,new Date(rok-1900, miesiac-1, dzien), miejscowosc,
                         break;
                     
                     case '4':
+                        System.out.println("Drukowanie listy uczniów");
                         System.out.print("Podaj numer klasy:");
                         numerKlasy = in.nextInt();
                         System.out.print("Podaj literę klasy:");
@@ -391,6 +392,7 @@ setNauczycielWszystkieDane(id,new Date(rok-1900, miesiac-1, dzien), miejscowosc,
                         break;
                     
                     case '5':
+                        System.out.println("Lista uczniów na przedmiocie");
                         System.out.print("Podaj numer klasy:");
                         numerKlasy = in.nextInt();
                         System.out.print("Podaj literę klasy:");
@@ -403,6 +405,7 @@ setNauczycielWszystkieDane(id,new Date(rok-1900, miesiac-1, dzien), miejscowosc,
                         break;
                     
                     case '6':
+                        System.out.println("Usuwanie ucznia");
                         System.out.print("Podaj numer klasy:");
                         numerKlasy = in.nextInt();
                         System.out.print("Podaj literę klasy:");
@@ -459,12 +462,13 @@ setNauczycielWszystkieDane(id,new Date(rok-1900, miesiac-1, dzien), miejscowosc,
                 switch(arg[i]){
                     
                     case '1':
+                        System.out.println("Dodawanie przedmiotu");
                         System.out.print("Podaj numer klasy:");
                         numerKlasy = in.nextInt();
                         System.out.print("Podaj literę klasy:");
                         znakKlasy = in.next().charAt(0);
                         System.out.print("Podaj nazwe Przedmiotu:");
-                        nazwa = in.next();
+                        nazwa = (String)(in.next());
                         System.out.print("Podaj id nauczyciela:");
                         id = in.nextInt();
                         
@@ -474,6 +478,7 @@ setNauczycielWszystkieDane(id,new Date(rok-1900, miesiac-1, dzien), miejscowosc,
                         break;
                     
                     case '2':
+                        System.out.println("Drukowanie przedmiotów w klasie");
                         System.out.print("Podaj numer klasy:");
                         numerKlasy = in.nextInt();
                         System.out.print("Podaj literę klasy:");
@@ -483,7 +488,7 @@ setNauczycielWszystkieDane(id,new Date(rok-1900, miesiac-1, dzien), miejscowosc,
                         break;
                         
                     case '3':
-
+                        System.out.println("Drukowanie uczniów na przedmiocie");
                         System.out.print("Podaj numer klasy:");
                         numerKlasy = in.nextInt();
                         System.out.print("Podaj literę klasy:");
@@ -496,6 +501,7 @@ setNauczycielWszystkieDane(id,new Date(rok-1900, miesiac-1, dzien), miejscowosc,
                         break;
 
                     case '4':
+                        System.out.println("Ustawianie nauczyciela");
                         System.out.print("Podaj numer klasy:");
                         numerKlasy = in.nextInt();
                         System.out.print("Podaj literę klasy:");
@@ -510,6 +516,7 @@ setNauczycielWszystkieDane(id,new Date(rok-1900, miesiac-1, dzien), miejscowosc,
                         break;                        
                     
                     case '5':
+                        System.out.println("Usuwanie ucznia z przedmiotu");
                         System.out.print("Podaj numer klasy:");
                         numerKlasy = in.nextInt();
                         System.out.print("Podaj literę klasy:");
@@ -524,6 +531,7 @@ setNauczycielWszystkieDane(id,new Date(rok-1900, miesiac-1, dzien), miejscowosc,
                         break;                        
                     
                     case '6':
+                        System.out.println("Usuwanie przedmiotu");
                         System.out.print("Podaj numer klasy:");
                         numerKlasy = in.nextInt();
                         System.out.print("Podaj literę klasy:");
