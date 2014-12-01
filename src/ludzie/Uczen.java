@@ -34,7 +34,7 @@ public class Uczen extends Osoba {
     public String toString() {
         
         StringBuilder napis = new StringBuilder(super.toString());
-        napis.append("\nIdentyfikator Ucznia: " + identyfikator+"\n");
+
         return napis.toString();
     }
     

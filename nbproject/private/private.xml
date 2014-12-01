@@ -5,7 +5,9 @@
         <group>
             <file>file:/C:/xampp/htdocs/Program/src/program/Dziennik.java</file>
             <file>file:/C:/xampp/htdocs/Program/src/program/Okno.java</file>
-            <file>file:/C:/xampp/htdocs/Program/src/program/RokSzkolny.java</file>
+            <file>file:/C:/xampp/htdocs/Program/src/ludzie/Uczen.java</file>
+            <file>file:/C:/xampp/htdocs/Program/src/ludzie/Osoba.java</file>
+            <file>file:/C:/xampp/htdocs/Program/src/ludzie/Nauczyciel.java</file>
         </group>
     </open-files>
 </project-private>

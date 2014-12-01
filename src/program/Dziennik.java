@@ -31,6 +31,10 @@ public class Dziennik {
 
     public void zaladujPrzykladoweDane() {
         
+        for(int i = 0 ; i<100 ; i++){
+        addNauczyciel(new Nauczyciel("Jan", "Kowalski"));
+        
+        }
         addNauczyciel(new Nauczyciel("Jan", "Kowalski"));
         addNauczyciel(new Nauczyciel("Jan", "Szafa"));
         addNauczyciel(new Nauczyciel("Alojzy", "Malinowski"));
@@ -136,6 +140,11 @@ public class Dziennik {
     
     
     //Metody pracujące najdalej z rocznikiem 
+
+    public Object[] WszystkieRocznikitoArray() {
+        
+        return WszystkieRoczniki.toArray();
+    }
     
     public String printRokSzkolny() {
         
@@ -189,8 +198,6 @@ public class Dziennik {
 
                if( rok == tymczasowy.getRokSzkolny() ) {
 
-                   znaleziono = true;
-
                    ObecnyRocznik = tymczasowy;
                   
                    return true;
@@ -207,31 +214,44 @@ public class Dziennik {
        
     }
     
+    public boolean setObecnyRokSzkolnyNa(Object rok ){
+        
+        if(rok instanceof String){
+        String rokS = (String) rok;
+        String napis = rokS.substring(0, 3);
+        return this.setObecnyRokSzkolnyNa(Integer.parseInt(napis));
+        }
+        else return false;
+    }
+    
     public boolean removeRokSzkolny (int rok) {
         
-        boolean znaleziono = false;
-        int i =0;
-        RokSzkolny r;
-        
-        do {
+            if(WszystkieRoczniki.size() > 1 ) {
+            boolean znaleziono = false;
+            int i =0;
+            RokSzkolny r;
+
+            do {
+
+                r = WszystkieRoczniki.get(i);
+
+                if(r.getRokSzkolny() == rok)
+                    znaleziono = true;
+                else
+                    ++i;
+
+            }while((!znaleziono) && i < WszystkieRoczniki.size() );
+
+
+            if (znaleziono){
+                WszystkieRoczniki.remove(i);
+                return true;
+            }
+            else 
+                return false;
+            }
             
-            r = WszystkieRoczniki.get(i);
-           
-            if(r.getRokSzkolny() == rok)
-                znaleziono = true;
-            else
-                ++i;
-           
-            
-        }while((!znaleziono) && i < WszystkieRoczniki.size() );
-        
-        if (znaleziono){
-            WszystkieRoczniki.remove(i);
-            return true;
-        }
-        else 
-            return false;
-        
+            else return false;
     }
     
     //metody pracujące najdalej z klasą

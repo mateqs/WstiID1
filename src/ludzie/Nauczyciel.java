@@ -53,8 +53,7 @@ public class Nauczyciel extends Osoba{
     
         
         StringBuilder napis = new StringBuilder(super.toString());
-        napis.append("\nIdentyfikator pracownika: " + identyfikator+"\n");
-        
+
         return napis.toString();
     
     }

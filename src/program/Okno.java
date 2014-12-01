@@ -1,6 +1,7 @@
 
 package program;
 
+import com.sun.awt.AWTUtilities;
 import java.awt.Component;
 import java.awt.event.ActionEvent;
 import javax.swing.JButton;
@@ -31,7 +32,50 @@ public class Okno extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jFrame1 = new javax.swing.JFrame();
+        RokDialog = new javax.swing.JFrame();
+        TekstRoku = new javax.swing.JLabel();
+        WyborRoku = new javax.swing.JComboBox();
+        RokDialogCancel = new javax.swing.JButton();
+        RokDialogOk = new javax.swing.JButton();
+        DodajRok = new javax.swing.JFrame();
+        jPanel1 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        DodawanieRokWartosc = new javax.swing.JTextField();
+        DodawanieWarn = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
+        UsunRok = new javax.swing.JFrame();
+        jPanel2 = new javax.swing.JPanel();
+        UsunRokWartosc = new javax.swing.JComboBox();
+        jLabel2 = new javax.swing.JLabel();
+        jButton3 = new javax.swing.JButton();
+        UsunRokOK = new javax.swing.JButton();
+        NauczycielUsuwanie = new javax.swing.JFrame();
+        jPanel3 = new javax.swing.JPanel();
+        NauczycielUsuwanieWybor = new javax.swing.JComboBox();
+        jLabel3 = new javax.swing.JLabel();
+        NauczycielUsuwanieOK = new javax.swing.JButton();
+        NauczycielUsuwanieAnuluj = new javax.swing.JButton();
+        NauczycieleUstawianie = new javax.swing.JFrame();
+        jPanel4 = new javax.swing.JPanel();
+        jLabel8 = new javax.swing.JLabel();
+        jComboBox1 = new javax.swing.JComboBox();
+        KlasyDodawanieOkno = new javax.swing.JFrame();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        DodawanieWychowawcyWybor = new javax.swing.JComboBox();
+        jLabel7 = new javax.swing.JLabel();
+        DodajKlaseAnuluj = new javax.swing.JButton();
+        jButton5 = new javax.swing.JButton();
+        DodawanieNumerKL = new javax.swing.JComboBox();
+        DodawanieKlasyZnak = new javax.swing.JComboBox();
+        DodawanieKlasyWarn = new javax.swing.JLabel();
+        KlasyUsuwanieOkno = new javax.swing.JFrame();
+        jPanel5 = new javax.swing.JPanel();
+        UsuwanieKlasyOK = new javax.swing.JButton();
+        UsuwanieKlasyAnuluj = new javax.swing.JButton();
+        jLabel9 = new javax.swing.JLabel();
+        UsuwanieKlasyWybor = new javax.swing.JComboBox();
         KartyProgramu = new javax.swing.JTabbedPane();
         NauczycieleTab = new javax.swing.JPanel();
         TabelaNauczycieli = new javax.swing.JScrollPane();
@@ -41,7 +85,7 @@ public class Okno extends javax.swing.JFrame {
         NauczycieleUstaw = new javax.swing.JButton();
         KlasyTab = new javax.swing.JPanel();
         jScrollPane5 = new javax.swing.JScrollPane();
-        jTable5 = new javax.swing.JTable();
+        TabelaKlas = new javax.swing.JTable();
         KlasyDodaj = new javax.swing.JButton();
         KlasyUsun = new javax.swing.JButton();
         KlasyUstaw = new javax.swing.JButton();
@@ -61,20 +105,484 @@ public class Okno extends javax.swing.JFrame {
         program = new javax.swing.JMenu();
         PrzykladoweDaneMenu = new javax.swing.JCheckBoxMenuItem();
         Odswież = new javax.swing.JMenuItem();
-        jMenu2 = new javax.swing.JMenu();
+        RokMenu = new javax.swing.JMenu();
+        UstawianieRokuMenu = new javax.swing.JMenuItem();
+        DodawanieRokuMenu = new javax.swing.JMenuItem();
+        UsuwanieRokuMenu = new javax.swing.JMenuItem();
 
-        javax.swing.GroupLayout jFrame1Layout = new javax.swing.GroupLayout(jFrame1.getContentPane());
-        jFrame1.getContentPane().setLayout(jFrame1Layout);
-        jFrame1Layout.setHorizontalGroup(
-            jFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+        RokDialog.setTitle("Wybór roku");
+        RokDialog.setMinimumSize(new java.awt.Dimension(350, 200));
+
+        TekstRoku.setText("Wybierz obecny rok:");
+
+        WyborRoku.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                WyborRokuActionPerformed(evt);
+            }
+        });
+
+        RokDialogCancel.setText("Cancel");
+        RokDialogCancel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RokDialogCancelActionPerformed(evt);
+            }
+        });
+
+        RokDialogOk.setText("OK");
+        RokDialogOk.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RokDialogOkActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout RokDialogLayout = new javax.swing.GroupLayout(RokDialog.getContentPane());
+        RokDialog.getContentPane().setLayout(RokDialogLayout);
+        RokDialogLayout.setHorizontalGroup(
+            RokDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(RokDialogLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(RokDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(TekstRoku)
+                    .addGroup(RokDialogLayout.createSequentialGroup()
+                        .addGap(26, 26, 26)
+                        .addComponent(RokDialogCancel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addGroup(RokDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(RokDialogLayout.createSequentialGroup()
+                        .addGap(10, 10, 10)
+                        .addComponent(WyborRoku, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, RokDialogLayout.createSequentialGroup()
+                        .addGap(80, 80, 80)
+                        .addComponent(RokDialogOk, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(28, 28, 28)))
+                .addContainerGap())
         );
-        jFrame1Layout.setVerticalGroup(
-            jFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+        RokDialogLayout.setVerticalGroup(
+            RokDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(RokDialogLayout.createSequentialGroup()
+                .addGap(29, 29, 29)
+                .addGroup(RokDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(TekstRoku)
+                    .addComponent(WyborRoku, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 97, Short.MAX_VALUE)
+                .addGroup(RokDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(RokDialogCancel)
+                    .addComponent(RokDialogOk))
+                .addGap(31, 31, 31))
+        );
+
+        DodajRok.setTitle("Dodawanie Roku");
+        DodajRok.setLocationByPlatform(true);
+        DodajRok.setMinimumSize(new java.awt.Dimension(350, 200));
+
+        jLabel1.setText("Podaj rok w którym zaczyna się rok szkolny do utworzenia:");
+
+        DodawanieRokWartosc.setText("2014");
+        DodawanieRokWartosc.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                DodawanieRokWartoscActionPerformed(evt);
+            }
+        });
+
+        DodawanieWarn.setForeground(new java.awt.Color(255, 0, 0));
+        DodawanieWarn.setText("Podana wartość musi być liczbą! (2000-3000)");
+
+        jButton1.setText("Anuluj");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
+        jButton2.setText("Dodaj");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(13, 13, 13)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(DodawanieWarn)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jButton1)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jButton2))
+                            .addComponent(DodawanieRokWartosc, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel1)
+                                .addGap(0, 34, Short.MAX_VALUE)))
+                        .addGap(22, 22, 22))))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGap(19, 19, 19)
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(DodawanieRokWartosc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(DodawanieWarn)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton1)
+                    .addComponent(jButton2))
+                .addContainerGap())
+        );
+
+        javax.swing.GroupLayout DodajRokLayout = new javax.swing.GroupLayout(DodajRok.getContentPane());
+        DodajRok.getContentPane().setLayout(DodajRokLayout);
+        DodajRokLayout.setHorizontalGroup(
+            DodajRokLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        DodajRokLayout.setVerticalGroup(
+            DodajRokLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+
+        UsunRok.setTitle("Usuwanie roku");
+        UsunRok.setLocationByPlatform(true);
+        UsunRok.setMinimumSize(new java.awt.Dimension(350, 200));
+
+        UsunRokWartosc.setEditable(true);
+        UsunRokWartosc.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                UsunRokWartoscActionPerformed(evt);
+            }
+        });
+
+        jLabel2.setText("Który rok chcesz usunąć:");
+
+        jButton3.setText("Anuluj");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+
+        UsunRokOK.setText("Usuń");
+        UsunRokOK.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                UsunRokOKActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(19, 19, 19)
+                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 50, Short.MAX_VALUE)
+                .addComponent(UsunRokWartosc, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(23, 23, 23))
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(54, 54, 54)
+                .addComponent(jButton3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(UsunRokOK)
+                .addGap(58, 58, 58))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(41, 41, 41)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(UsunRokWartosc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 78, Short.MAX_VALUE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton3)
+                    .addComponent(UsunRokOK))
+                .addGap(38, 38, 38))
+        );
+
+        javax.swing.GroupLayout UsunRokLayout = new javax.swing.GroupLayout(UsunRok.getContentPane());
+        UsunRok.getContentPane().setLayout(UsunRokLayout);
+        UsunRokLayout.setHorizontalGroup(
+            UsunRokLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        UsunRokLayout.setVerticalGroup(
+            UsunRokLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+
+        NauczycielUsuwanie.setLocationByPlatform(true);
+        NauczycielUsuwanie.setMinimumSize(new java.awt.Dimension(350, 200));
+
+        jLabel3.setText("Którego nauczyciela usunąć?");
+
+        NauczycielUsuwanieOK.setText("Usuń");
+        NauczycielUsuwanieOK.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                NauczycielUsuwanieOKActionPerformed(evt);
+            }
+        });
+
+        NauczycielUsuwanieAnuluj.setText("Anuluj");
+        NauczycielUsuwanieAnuluj.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                NauczycielUsuwanieAnulujActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(16, 16, 16)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                        .addComponent(NauczycielUsuwanieAnuluj)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(NauczycielUsuwanieOK))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel3)
+                            .addComponent(NauczycielUsuwanieWybor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 174, Short.MAX_VALUE)))
+                .addGap(22, 22, 22))
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(50, 50, 50)
+                .addComponent(jLabel3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(NauczycielUsuwanieWybor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 64, Short.MAX_VALUE)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(NauczycielUsuwanieOK)
+                    .addComponent(NauczycielUsuwanieAnuluj))
+                .addGap(23, 23, 23))
+        );
+
+        javax.swing.GroupLayout NauczycielUsuwanieLayout = new javax.swing.GroupLayout(NauczycielUsuwanie.getContentPane());
+        NauczycielUsuwanie.getContentPane().setLayout(NauczycielUsuwanieLayout);
+        NauczycielUsuwanieLayout.setHorizontalGroup(
+            NauczycielUsuwanieLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        NauczycielUsuwanieLayout.setVerticalGroup(
+            NauczycielUsuwanieLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+
+        NauczycieleUstawianie.setLocationByPlatform(true);
+        NauczycieleUstawianie.setMinimumSize(new java.awt.Dimension(350, 200));
+
+        jLabel8.setText("Wybierz nauczyciela do edycji: ");
+
+        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox1ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addGap(19, 19, 19)
+                .addComponent(jLabel8)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 134, Short.MAX_VALUE)
+                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(19, 19, 19))
+        );
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel8)
+                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(169, Short.MAX_VALUE))
+        );
+
+        javax.swing.GroupLayout NauczycieleUstawianieLayout = new javax.swing.GroupLayout(NauczycieleUstawianie.getContentPane());
+        NauczycieleUstawianie.getContentPane().setLayout(NauczycieleUstawianieLayout);
+        NauczycieleUstawianieLayout.setHorizontalGroup(
+            NauczycieleUstawianieLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        NauczycieleUstawianieLayout.setVerticalGroup(
+            NauczycieleUstawianieLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+
+        KlasyDodawanieOkno.setMinimumSize(new java.awt.Dimension(400, 250));
+
+        jLabel4.setText("Wybierz nr. klasy");
+
+        jLabel5.setText("Wybierz literę");
+
+        DodawanieWychowawcyWybor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                DodawanieWychowawcyWyborActionPerformed(evt);
+            }
+        });
+
+        jLabel7.setText("Wybierz wychowawcę");
+
+        DodajKlaseAnuluj.setText("Anuluj");
+        DodajKlaseAnuluj.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                DodajKlaseAnulujActionPerformed(evt);
+            }
+        });
+
+        jButton5.setText("Dodaj");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
+
+        DodawanieNumerKL.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "1", "2", "3", "4", "5", "6" }));
+
+        DodawanieKlasyZnak.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "A", "B", "C", "D", "E", "F", "G", "H", "I", "J" }));
+        DodawanieKlasyZnak.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                DodawanieKlasyZnakActionPerformed(evt);
+            }
+        });
+
+        DodawanieKlasyWarn.setForeground(new java.awt.Color(255, 0, 0));
+        DodawanieKlasyWarn.setText("Źle wybrane dane!");
+
+        javax.swing.GroupLayout KlasyDodawanieOknoLayout = new javax.swing.GroupLayout(KlasyDodawanieOkno.getContentPane());
+        KlasyDodawanieOkno.getContentPane().setLayout(KlasyDodawanieOknoLayout);
+        KlasyDodawanieOknoLayout.setHorizontalGroup(
+            KlasyDodawanieOknoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(KlasyDodawanieOknoLayout.createSequentialGroup()
+                .addGap(49, 49, 49)
+                .addGroup(KlasyDodawanieOknoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(KlasyDodawanieOknoLayout.createSequentialGroup()
+                        .addComponent(DodawanieKlasyWarn)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(KlasyDodawanieOknoLayout.createSequentialGroup()
+                        .addGroup(KlasyDodawanieOknoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(KlasyDodawanieOknoLayout.createSequentialGroup()
+                                .addGroup(KlasyDodawanieOknoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel4)
+                                    .addComponent(jLabel5)
+                                    .addComponent(jLabel7))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 112, Short.MAX_VALUE)
+                                .addGroup(KlasyDodawanieOknoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(DodawanieWychowawcyWybor, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(DodawanieNumerKL, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(DodawanieKlasyZnak, 0, 122, Short.MAX_VALUE)))
+                            .addGroup(KlasyDodawanieOknoLayout.createSequentialGroup()
+                                .addComponent(DodajKlaseAnuluj)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jButton5)))
+                        .addGap(16, 16, 16))))
+        );
+        KlasyDodawanieOknoLayout.setVerticalGroup(
+            KlasyDodawanieOknoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(KlasyDodawanieOknoLayout.createSequentialGroup()
+                .addGap(17, 17, 17)
+                .addGroup(KlasyDodawanieOknoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel4)
+                    .addComponent(DodawanieNumerKL, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(KlasyDodawanieOknoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel5)
+                    .addComponent(DodawanieKlasyZnak, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(KlasyDodawanieOknoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(DodawanieWychowawcyWybor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel7))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(DodawanieKlasyWarn)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
+                .addGroup(KlasyDodawanieOknoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(DodajKlaseAnuluj)
+                    .addComponent(jButton5))
+                .addGap(20, 20, 20))
+        );
+
+        KlasyUsuwanieOkno.setMinimumSize(new java.awt.Dimension(350, 200));
+
+        UsuwanieKlasyOK.setText("Usuń");
+        UsuwanieKlasyOK.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                UsuwanieKlasyOKActionPerformed(evt);
+            }
+        });
+
+        UsuwanieKlasyAnuluj.setText("Anuluj");
+        UsuwanieKlasyAnuluj.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                UsuwanieKlasyAnulujActionPerformed(evt);
+            }
+        });
+
+        jLabel9.setText("Którą klasę chcesz usunąc:");
+
+        UsuwanieKlasyWybor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                UsuwanieKlasyWyborActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
+        jPanel5.setLayout(jPanel5Layout);
+        jPanel5Layout.setHorizontalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addComponent(UsuwanieKlasyAnuluj)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(UsuwanieKlasyOK))
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addComponent(jLabel9)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 173, Short.MAX_VALUE)
+                        .addComponent(UsuwanieKlasyWybor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap())
+        );
+        jPanel5Layout.setVerticalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
+                .addGap(37, 37, 37)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel9)
+                    .addComponent(UsuwanieKlasyWybor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 97, Short.MAX_VALUE)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(UsuwanieKlasyOK)
+                    .addComponent(UsuwanieKlasyAnuluj))
+                .addGap(23, 23, 23))
+        );
+
+        javax.swing.GroupLayout KlasyUsuwanieOknoLayout = new javax.swing.GroupLayout(KlasyUsuwanieOkno.getContentPane());
+        KlasyUsuwanieOkno.getContentPane().setLayout(KlasyUsuwanieOknoLayout);
+        KlasyUsuwanieOknoLayout.setHorizontalGroup(
+            KlasyUsuwanieOknoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        KlasyUsuwanieOknoLayout.setVerticalGroup(
+            KlasyUsuwanieOknoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setLocationByPlatform(true);
 
         KartyProgramu.setPreferredSize(new java.awt.Dimension(600, 500));
 
@@ -111,6 +619,16 @@ public class Okno extends javax.swing.JFrame {
         });
 
         NauczycieleUsun.setText("Usuń");
+        NauczycieleUsun.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                NauczycieleUsunItemStateChanged(evt);
+            }
+        });
+        NauczycieleUsun.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                NauczycieleUsunActionPerformed(evt);
+            }
+        });
 
         NauczycieleUstaw.setText("Ustaw dodatkowe dane");
         NauczycieleUstaw.addActionListener(new java.awt.event.ActionListener() {
@@ -144,13 +662,13 @@ public class Okno extends javax.swing.JFrame {
                     .addComponent(NauczycieleUsun, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(NauczycieleUstaw, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(TabelaNauczycieli, javax.swing.GroupLayout.DEFAULT_SIZE, 395, Short.MAX_VALUE)
+                .addComponent(TabelaNauczycieli, javax.swing.GroupLayout.DEFAULT_SIZE, 416, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
         KartyProgramu.addTab("Nauczyciele", NauczycieleTab);
 
-        jTable5.setModel(new javax.swing.table.DefaultTableModel(
+        TabelaKlas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -161,12 +679,19 @@ public class Okno extends javax.swing.JFrame {
             Class[] types = new Class [] {
                 java.lang.Integer.class, java.lang.String.class, java.lang.String.class
             };
+            boolean[] canEdit = new boolean [] {
+                false, false, false
+            };
 
             public Class getColumnClass(int columnIndex) {
                 return types [columnIndex];
             }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
         });
-        jScrollPane5.setViewportView(jTable5);
+        jScrollPane5.setViewportView(TabelaKlas);
 
         KlasyDodaj.setText("Dodaj");
         KlasyDodaj.addActionListener(new java.awt.event.ActionListener() {
@@ -176,6 +701,11 @@ public class Okno extends javax.swing.JFrame {
         });
 
         KlasyUsun.setText("Usuń");
+        KlasyUsun.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                KlasyUsunActionPerformed(evt);
+            }
+        });
 
         KlasyUstaw.setText("Ustaw wychowawcę");
 
@@ -204,7 +734,7 @@ public class Okno extends javax.swing.JFrame {
                     .addComponent(KlasyUsun, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(KlasyUstaw, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 395, Short.MAX_VALUE)
+                .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 416, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -259,7 +789,7 @@ public class Okno extends javax.swing.JFrame {
                     .addComponent(jButton17, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jButton18, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane6, javax.swing.GroupLayout.DEFAULT_SIZE, 395, Short.MAX_VALUE)
+                .addComponent(jScrollPane6, javax.swing.GroupLayout.DEFAULT_SIZE, 416, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -314,7 +844,7 @@ public class Okno extends javax.swing.JFrame {
                     .addComponent(jButton20, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jButton21, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane7, javax.swing.GroupLayout.DEFAULT_SIZE, 395, Short.MAX_VALUE)
+                .addComponent(jScrollPane7, javax.swing.GroupLayout.DEFAULT_SIZE, 416, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -346,8 +876,38 @@ public class Okno extends javax.swing.JFrame {
 
         jMenuBar1.add(program);
 
-        jMenu2.setText("Rok szkolny");
-        jMenuBar1.add(jMenu2);
+        RokMenu.setText("Rok szkolny");
+        RokMenu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RokMenuActionPerformed(evt);
+            }
+        });
+
+        UstawianieRokuMenu.setText("Ustaw rok");
+        UstawianieRokuMenu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                UstawianieRokuMenuActionPerformed(evt);
+            }
+        });
+        RokMenu.add(UstawianieRokuMenu);
+
+        DodawanieRokuMenu.setText("Dodaj rok");
+        DodawanieRokuMenu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                DodawanieRokuMenuActionPerformed(evt);
+            }
+        });
+        RokMenu.add(DodawanieRokuMenu);
+
+        UsuwanieRokuMenu.setText("Usun rok");
+        UsuwanieRokuMenu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                UsuwanieRokuMenuActionPerformed(evt);
+            }
+        });
+        RokMenu.add(UsuwanieRokuMenu);
+
+        jMenuBar1.add(RokMenu);
 
         setJMenuBar(jMenuBar1);
 
@@ -367,17 +927,19 @@ public class Okno extends javax.swing.JFrame {
 
     private void PrzykladoweDaneMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PrzykladoweDaneMenuActionPerformed
 
-        if (PrzykladoweDaneMenu.isSelected()) {
             dziennik.zaladujPrzykladoweDane();
             PrzykladoweDaneMenu.setSelected(true);
             PrzykladoweDaneMenu.setEnabled(false);
-        }
                 
-        this.OdswieżActionPerformed(evt);
+        OdswieżActionPerformed(evt);
     }//GEN-LAST:event_PrzykladoweDaneMenuActionPerformed
 
     private void NauczycieleUstawActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NauczycieleUstawActionPerformed
-        // TODO add your handling code here:
+
+        NauczycieleUstawianie.setVisible(true);
+        
+        //TODO dokończyć to
+        
     }//GEN-LAST:event_NauczycieleUstawActionPerformed
 
     private void NauczycieleDodajActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NauczycieleDodajActionPerformed
@@ -400,21 +962,40 @@ public class Okno extends javax.swing.JFrame {
 
     private void OdswieżActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_OdswieżActionPerformed
         
-        
-         DefaultTableModel tabela = (DefaultTableModel) NauczycieleTabela.getModel();
-      //TODO dodać resztę
-
-      while (tabela.getRowCount() >0)
-          tabela.removeRow(0);
-      
-      Nauczyciel[] nauczyciele = dziennik.printNauczyciele();
-      
-      for(Nauczyciel n : nauczyciele) {
-          tabela.addRow(new Object [] {n.getIdentyfikator(),n.getImie() , n.getNazwisko() } );
-      }
-      
+     odswiezTabeleNauczycieli();
+     odswierzTabeleKlas();
     }//GEN-LAST:event_OdswieżActionPerformed
 
+    private void odswiezTabeleNauczycieli() {
+    
+        DefaultTableModel tabela = (DefaultTableModel) NauczycieleTabela.getModel();
+
+        while (tabela.getRowCount() > 0) {
+            tabela.removeRow(0);
+        }
+
+        Nauczyciel[] nauczyciele = dziennik.printNauczyciele();
+
+        for (Nauczyciel n : nauczyciele) {
+            tabela.addRow(new Object[]{n.getIdentyfikator(), n.getImie(), n.getNazwisko()});
+        }
+    }
+    
+    private void odswierzTabeleKlas() {
+        DefaultTableModel tabela = (DefaultTableModel) TabelaKlas.getModel();
+
+        while (tabela.getRowCount() > 0) {
+            tabela.removeRow(0);
+        }
+
+        Klasa[] klasy = dziennik.printWszystkieKlasy();
+
+        for (Klasa k : klasy) {
+            Nauczyciel nauczyciel = dziennik.getNauczyciel(k.getIdWychowawcy());
+            tabela.addRow(new Object[]{k.getNumerKlasy(), k.getZnakKlasy(), nauczyciel});
+        }
+    }
+    
     private void programActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_programActionPerformed
 
         // TODO add your handling code here:
@@ -424,8 +1005,257 @@ public class Okno extends javax.swing.JFrame {
 
     private void KlasyDodajActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_KlasyDodajActionPerformed
 
+        KlasyDodawanieOkno.setVisible(true);
+        DodawanieWychowawcyWybor.removeAllItems();
+        DodawanieKlasyWarn.setVisible(false);
         
+        
+        Nauczyciel [] lista = dziennik.printNauczyciele();
+        
+        if (lista.length > 0) {
+            DodawanieWychowawcyWybor.setEnabled(true);
+            for (Nauczyciel n : lista) {
+                DodawanieWychowawcyWybor.addItem(n);
+            }
+        } else {
+            DodawanieWychowawcyWybor.setEnabled(false);
+        }
             }//GEN-LAST:event_KlasyDodajActionPerformed
+
+    private void RokMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RokMenuActionPerformed
+
+       
+    }//GEN-LAST:event_RokMenuActionPerformed
+
+    private void UstawianieRokuMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UstawianieRokuMenuActionPerformed
+        Object[] tabela = dziennik.WszystkieRocznikitoArray();
+        
+        WyborRoku.removeAllItems();
+        
+        for (Object o : tabela) 
+            WyborRoku.addItem(o);
+        
+        RokDialog.setVisible(true);
+        
+    }//GEN-LAST:event_UstawianieRokuMenuActionPerformed
+
+    private void WyborRokuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_WyborRokuActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_WyborRokuActionPerformed
+
+    private void RokDialogOkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RokDialogOkActionPerformed
+        
+        RokDialog.setVisible(false);
+        
+        Object ob = WyborRoku.getSelectedItem();
+        
+        String napis = ob.toString().substring(0, 4);
+        int rok = Integer.parseInt(napis);
+
+        dziennik.setObecnyRokSzkolnyNa(rok);
+    }//GEN-LAST:event_RokDialogOkActionPerformed
+
+    private void RokDialogCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RokDialogCancelActionPerformed
+        RokDialog.setVisible(false);
+    }//GEN-LAST:event_RokDialogCancelActionPerformed
+
+    private void DodawanieRokuMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DodawanieRokuMenuActionPerformed
+
+        DodawanieWarn.setVisible(false);
+        
+        DodajRok.setVisible(true);
+        
+    }//GEN-LAST:event_DodawanieRokuMenuActionPerformed
+
+    private void DodawanieRokWartoscActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DodawanieRokWartoscActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_DodawanieRokWartoscActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+
+        String text = DodawanieRokWartosc.getText();
+        int rok = -1;
+        if(text != null){
+            try{
+            rok = Integer.parseInt(text);
+            }
+            catch(Throwable e){
+                DodawanieWarn.setVisible(true);
+            }
+            
+            if( rok >= 2000 && rok <= 3000){
+                dziennik.addRocznik(rok);
+                DodajRok.setVisible(false);
+            }
+            else
+            DodawanieWarn.setVisible(true);
+        }
+        else
+            DodawanieWarn.setVisible(true);
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        DodajRok.setVisible(false);
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        UsunRok.setVisible(false);
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void UsuwanieRokuMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UsuwanieRokuMenuActionPerformed
+        
+        Object[] tabela = dziennik.WszystkieRocznikitoArray();
+        
+        UsunRokWartosc.removeAllItems();
+        
+        for (Object o : tabela) {
+            UsunRokWartosc.addItem(o);
+        }
+        UsunRok.setVisible(true);
+        
+    }//GEN-LAST:event_UsuwanieRokuMenuActionPerformed
+
+    private void UsunRokOKActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UsunRokOKActionPerformed
+
+        UsunRok.setVisible(false);
+
+        Object ob = UsunRokWartosc.getSelectedItem();
+        
+        String napis = ob.toString().substring(0, 4);
+        int rok = Integer.parseInt(napis);
+        
+        dziennik.removeRokSzkolny(rok);
+            
+  
+        
+    }//GEN-LAST:event_UsunRokOKActionPerformed
+
+    private void UsunRokWartoscActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UsunRokWartoscActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_UsunRokWartoscActionPerformed
+
+    private void NauczycieleUsunActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NauczycieleUsunActionPerformed
+
+        
+        Nauczyciel [] lista = dziennik.printNauczyciele();
+        NauczycielUsuwanieWybor.removeAllItems();
+        
+        for(Nauczyciel n : lista){
+            NauczycielUsuwanieWybor.addItem(n);
+        }
+        
+        if (lista.length >0 )
+            NauczycielUsuwanie.setVisible(true);
+
+    }//GEN-LAST:event_NauczycieleUsunActionPerformed
+
+    private void NauczycielUsuwanieAnulujActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NauczycielUsuwanieAnulujActionPerformed
+
+        NauczycielUsuwanie.setVisible(false);
+    }//GEN-LAST:event_NauczycielUsuwanieAnulujActionPerformed
+
+    private void NauczycielUsuwanieOKActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NauczycielUsuwanieOKActionPerformed
+
+        NauczycielUsuwanie.setVisible(false);
+        
+        int id=0;
+        
+        int indeksWybranego = NauczycielUsuwanieWybor.getSelectedIndex();
+        Nauczyciel [] lista = dziennik.printNauczyciele();
+        id = lista[indeksWybranego].getIdentyfikator();
+        
+        dziennik.removeNauczyciel(id);
+        OdswieżActionPerformed(evt);
+        
+    }//GEN-LAST:event_NauczycielUsuwanieOKActionPerformed
+
+    private void NauczycieleUsunItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_NauczycieleUsunItemStateChanged
+        // TODO add your handling code here:
+    }//GEN-LAST:event_NauczycieleUsunItemStateChanged
+
+    private void DodajKlaseAnulujActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DodajKlaseAnulujActionPerformed
+
+        KlasyDodawanieOkno.setVisible(false);
+    }//GEN-LAST:event_DodajKlaseAnulujActionPerformed
+
+    private void DodawanieWychowawcyWyborActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DodawanieWychowawcyWyborActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_DodawanieWychowawcyWyborActionPerformed
+
+    private void DodawanieKlasyZnakActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DodawanieKlasyZnakActionPerformed
+
+    }//GEN-LAST:event_DodawanieKlasyZnakActionPerformed
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+
+        int numerKlasy,id;
+        char znakKlasy;
+        
+        numerKlasy = DodawanieNumerKL.getSelectedIndex() + 1;
+        
+
+        
+        Object ob = DodawanieKlasyZnak.getSelectedItem();
+        znakKlasy = ob.toString().charAt(0);
+
+        Nauczyciel[] lista = dziennik.printNauczyciele();
+        
+        if (lista.length > 0) {
+            
+            int indeks = DodawanieWychowawcyWybor.getSelectedIndex();
+            
+            id = lista[indeks].getIdentyfikator();
+            Nauczyciel n = lista[indeks];
+            
+            if (dziennik.addKlasa(numerKlasy, znakKlasy, id)) {
+                
+                DefaultTableModel tabela = (DefaultTableModel) TabelaKlas.getModel();
+                tabela.addRow(new Object[]{numerKlasy, znakKlasy, n});
+                KlasyDodawanieOkno.setVisible(false);
+            } else {
+                DodawanieKlasyWarn.setVisible(true);
+            }
+        }
+    }//GEN-LAST:event_jButton5ActionPerformed
+
+    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBox1ActionPerformed
+
+    private void KlasyUsunActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_KlasyUsunActionPerformed
+        Klasa[] lista = dziennik.printWszystkieKlasy();
+        
+        
+        if(lista.length > 0){
+            KlasyUsuwanieOkno.setVisible(true);
+            UsuwanieKlasyWybor.removeAllItems();
+            
+            for (Klasa k : lista)
+                UsuwanieKlasyWybor.addItem(k);
+        }
+        
+    }//GEN-LAST:event_KlasyUsunActionPerformed
+
+    private void UsuwanieKlasyAnulujActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UsuwanieKlasyAnulujActionPerformed
+        KlasyUsuwanieOkno.setVisible(false);
+    }//GEN-LAST:event_UsuwanieKlasyAnulujActionPerformed
+
+    private void UsuwanieKlasyWyborActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UsuwanieKlasyWyborActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_UsuwanieKlasyWyborActionPerformed
+
+    private void UsuwanieKlasyOKActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UsuwanieKlasyOKActionPerformed
+        KlasyUsuwanieOkno.setVisible(false);
+        
+        int wybranyIndeks = UsuwanieKlasyWybor.getSelectedIndex();
+        Klasa[] lista = dziennik.printWszystkieKlasy();
+        
+        Klasa k = lista[wybranyIndeks];
+        
+        dziennik.removeKlasa(k.getNumerKlasy(), k.getZnakKlasy());
+        
+        odswierzTabeleKlas();
+    }//GEN-LAST:event_UsuwanieKlasyOKActionPerformed
 
     /**
      * @param args the command line arguments
@@ -466,34 +1296,80 @@ public class Okno extends javax.swing.JFrame {
     private static Dziennik dziennik = new Dziennik();
    
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton DodajKlaseAnuluj;
+    private javax.swing.JFrame DodajRok;
+    private javax.swing.JLabel DodawanieKlasyWarn;
+    private javax.swing.JComboBox DodawanieKlasyZnak;
+    private javax.swing.JComboBox DodawanieNumerKL;
+    private javax.swing.JTextField DodawanieRokWartosc;
+    private javax.swing.JMenuItem DodawanieRokuMenu;
+    private javax.swing.JLabel DodawanieWarn;
+    private javax.swing.JComboBox DodawanieWychowawcyWybor;
     private javax.swing.JTabbedPane KartyProgramu;
     private javax.swing.JButton KlasyDodaj;
+    private javax.swing.JFrame KlasyDodawanieOkno;
     private javax.swing.JPanel KlasyTab;
     private javax.swing.JButton KlasyUstaw;
     private javax.swing.JButton KlasyUsun;
+    private javax.swing.JFrame KlasyUsuwanieOkno;
+    private javax.swing.JFrame NauczycielUsuwanie;
+    private javax.swing.JButton NauczycielUsuwanieAnuluj;
+    private javax.swing.JButton NauczycielUsuwanieOK;
+    private javax.swing.JComboBox NauczycielUsuwanieWybor;
     private javax.swing.JButton NauczycieleDodaj;
     private javax.swing.JPanel NauczycieleTab;
     private javax.swing.JTable NauczycieleTabela;
     private javax.swing.JButton NauczycieleUstaw;
+    private javax.swing.JFrame NauczycieleUstawianie;
     private javax.swing.JButton NauczycieleUsun;
     private javax.swing.JMenuItem Odswież;
     private javax.swing.JPanel PrzedmiotyTab;
     private javax.swing.JCheckBoxMenuItem PrzykladoweDaneMenu;
+    private javax.swing.JFrame RokDialog;
+    private javax.swing.JButton RokDialogCancel;
+    private javax.swing.JButton RokDialogOk;
+    private javax.swing.JMenu RokMenu;
+    private javax.swing.JTable TabelaKlas;
     private javax.swing.JScrollPane TabelaNauczycieli;
+    private javax.swing.JLabel TekstRoku;
     private javax.swing.JPanel UczniowieTab;
+    private javax.swing.JMenuItem UstawianieRokuMenu;
+    private javax.swing.JFrame UsunRok;
+    private javax.swing.JButton UsunRokOK;
+    private javax.swing.JComboBox UsunRokWartosc;
+    private javax.swing.JButton UsuwanieKlasyAnuluj;
+    private javax.swing.JButton UsuwanieKlasyOK;
+    private javax.swing.JComboBox UsuwanieKlasyWybor;
+    private javax.swing.JMenuItem UsuwanieRokuMenu;
+    private javax.swing.JComboBox WyborRoku;
+    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton16;
     private javax.swing.JButton jButton17;
     private javax.swing.JButton jButton18;
     private javax.swing.JButton jButton19;
+    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton20;
     private javax.swing.JButton jButton21;
-    private javax.swing.JFrame jFrame1;
-    private javax.swing.JMenu jMenu2;
+    private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton5;
+    private javax.swing.JComboBox jComboBox1;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel5;
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JScrollPane jScrollPane7;
-    private javax.swing.JTable jTable5;
     private javax.swing.JTable jTable6;
     private javax.swing.JTable jTable7;
     private javax.swing.JMenu program;
