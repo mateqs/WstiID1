@@ -36,6 +36,10 @@ public class RokSzkolny {
     
     }
     
+    public Przedmiot getPrzedmiot(Klasa klasa , String Nazwa){
+        return klasa.getPrzedmiot(Nazwa);
+    }
+    
     @Override
     public String toString() {
         int kolejny = rokSzkolny +1;

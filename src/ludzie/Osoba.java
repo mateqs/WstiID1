@@ -4,8 +4,6 @@ package ludzie;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.Objects;
-import program.Ocena;
 
 /**
  *
@@ -98,25 +96,26 @@ public class Osoba {
             return true;
         
     }
-    @Override
-    public String toString() {
-        
+    
+    public String getWszystkieDane(){
         if(czyWszystkieDane()) {
             
-        DateFormat df = new SimpleDateFormat("d MMMM yyyy  H:m");
+        DateFormat df = new SimpleDateFormat("d MMMM yyyy");
         String data = df.format(dataUrodzenia.getTime());
             
-        StringBuilder napis = new  StringBuilder (
-                "Imię: " + imie +
-                "\nNazwisko: " + nazwisko +
-                "\nData urodzenia: " + data +
-                "\nZamieszkały(/a): " + miejscowosc +
-                 " ul."+ ulica + " " + nrDomu + " " + kodPocztowy 
-        );
-        return napis.toString();
+        String napis = new  String (
+                "Urodzony(/a): " + data +
+                " Zamieszkały(/a): " + miejscowosc + " " + kodPocztowy +
+                 " ul."+ ulica + " " + nrDomu);
+        return napis;
       }
         else 
-            return imie +" " + nazwisko;
+            return null;
+    }
+    
+    @Override
+    public String toString() {
+        return imie + " " + nazwisko;
     }
 
     

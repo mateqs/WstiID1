@@ -51,10 +51,7 @@ public class Nauczyciel extends Osoba{
     @Override
     public String toString(){
     
-        
-        StringBuilder napis = new StringBuilder(super.toString());
-
-        return napis.toString();
+        return super.toString();
     
     }
     

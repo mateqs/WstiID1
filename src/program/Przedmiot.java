@@ -25,14 +25,18 @@ public class Przedmiot {
     public Przedmiot ( String NazwaPrzedmiotu) {
         
         this.nazwa = NazwaPrzedmiotu;
-        
+        this.idNauczyciela=-1;
     }
     public Przedmiot ( String NazwaPrzedmiotu , int IdNauczyciela) {
         
         this.nazwa = NazwaPrzedmiotu;
         this.idNauczyciela = IdNauczyciela;
     }
-   
+
+    public int getIdNauczyciela() {
+        return idNauczyciela;
+    }
+    
     public String getNazwa () {
         return nazwa;
     }

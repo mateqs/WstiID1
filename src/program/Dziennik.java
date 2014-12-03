@@ -31,15 +31,12 @@ public class Dziennik {
 
     public void zaladujPrzykladoweDane() {
         
-        for(int i = 0 ; i<100 ; i++){
-        addNauczyciel(new Nauczyciel("Jan", "Kowalski"));
-        
-        }
         addNauczyciel(new Nauczyciel("Jan", "Kowalski"));
         addNauczyciel(new Nauczyciel("Jan", "Szafa"));
         addNauczyciel(new Nauczyciel("Alojzy", "Malinowski"));
+        addNauczyciel(new Nauczyciel("Alojzy", "Malinowski"));
         addNauczyciel(new Nauczyciel("Janko", "Muzykant"));
-        addNauczyciel(new Nauczyciel("Krzesław", "Cokolwiek"));
+        addNauczyciel(new Nauczyciel("Krzesław", "Muzykant"));
         addNauczyciel(new Nauczyciel("Adam", "Cokolwiek"));
         ObecnyRocznik.zaladujPrzykladoweDane();
         przykladoweDane = true;
@@ -49,6 +46,10 @@ public class Dziennik {
         return przykladoweDane;
     }
            
+    public Przedmiot getPrzedmiot(Klasa klasa , String Nazwa){
+        return ObecnyRocznik.getPrzedmiot(klasa, Nazwa);
+    }
+    
     //metody pracujące najdalej z nauczycielem
     
     public boolean addNauczyciel(Nauczyciel nauczycielObj) {

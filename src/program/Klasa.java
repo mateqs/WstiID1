@@ -67,6 +67,19 @@ public class Klasa {
         return numerKlasy + " " + znakKlasy;
     }
     
+    public Przedmiot getPrzedmiot(String nazwa){
+        Przedmiot swap;
+        
+        for (int i = 0 ; i < Przedmioty.size() ; i++){
+            swap  =Przedmioty.get(i);
+            
+            if (swap.toString().equals(nazwa))
+                return swap;
+        }
+        
+        return null;
+    }
+    
     public boolean setWychowawca(int IdWychowawcy) {
 
         this.idWychowawcy = IdWychowawcy;
