@@ -153,6 +153,26 @@ public class Okno extends javax.swing.JFrame {
         jButton11 = new javax.swing.JButton();
         UczniowieUstawDane = new javax.swing.JButton();
         UczniowieKlasa = new javax.swing.JTextField();
+        OcenyDodawanie = new javax.swing.JFrame();
+        jPanel4 = new javax.swing.JPanel();
+        OcenyDodawanieWartosc = new javax.swing.JComboBox();
+        jLabel8 = new javax.swing.JLabel();
+        OcenyDodawanieUczen = new javax.swing.JComboBox();
+        jButton14 = new javax.swing.JButton();
+        jButton13 = new javax.swing.JButton();
+        jLabel31 = new javax.swing.JLabel();
+        Title = new javax.swing.JLabel();
+        buttonGroup1 = new javax.swing.ButtonGroup();
+        OcenyUsuwanieOkno = new javax.swing.JFrame();
+        jPanel13 = new javax.swing.JPanel();
+        jButton15 = new javax.swing.JButton();
+        jButton24 = new javax.swing.JButton();
+        jLabel33 = new javax.swing.JLabel();
+        jLabel34 = new javax.swing.JLabel();
+        OcenyUsuwanieUczen = new javax.swing.JComboBox();
+        OcenyUsuwanieOcena = new javax.swing.JComboBox();
+        OcenyUsuwanieTxt = new javax.swing.JLabel();
+        buttonGroup2 = new javax.swing.ButtonGroup();
         KartyProgramu = new javax.swing.JTabbedPane();
         NauczycieleTab = new javax.swing.JPanel();
         TabelaNauczycieli = new javax.swing.JScrollPane();
@@ -180,9 +200,23 @@ public class Okno extends javax.swing.JFrame {
         jButton20 = new javax.swing.JButton();
         jButton21 = new javax.swing.JButton();
         UczniowieWyborTab = new javax.swing.JComboBox();
+        UczniowieTab1 = new javax.swing.JPanel();
+        jScrollPane8 = new javax.swing.JScrollPane();
+        OcenyTabela = new javax.swing.JTable();
+        jButton22 = new javax.swing.JButton();
+        jButton23 = new javax.swing.JButton();
+        OcenyWyborKlasyTab = new javax.swing.JComboBox();
+        OcenyWyborPrzedmiotuTab = new javax.swing.JComboBox();
+        jLabel32 = new javax.swing.JLabel();
+        RadioSrednia = new javax.swing.JRadioButton();
+        RadioWszystkie = new javax.swing.JRadioButton();
+        jLabel35 = new javax.swing.JLabel();
+        RadioPrzedmioty = new javax.swing.JRadioButton();
+        RadioUczniowie = new javax.swing.JRadioButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         program = new javax.swing.JMenu();
         PrzykladoweDaneMenu = new javax.swing.JCheckBoxMenuItem();
+        PrzedmiotyCheckbox = new javax.swing.JCheckBoxMenuItem();
         Odswież = new javax.swing.JMenuItem();
         RokMenu = new javax.swing.JMenu();
         UstawianieRokuMenu = new javax.swing.JMenuItem();
@@ -883,7 +917,6 @@ public class Okno extends javax.swing.JFrame {
 
         UczniowieDodawanieOkno.setTitle("Dodawanie ucznia");
         UczniowieDodawanieOkno.setMinimumSize(new java.awt.Dimension(350, 200));
-        UczniowieDodawanieOkno.setPreferredSize(new java.awt.Dimension(350, 200));
 
         jLabel17.setText("Podaj imię:");
 
@@ -969,6 +1002,8 @@ public class Okno extends javax.swing.JFrame {
         jLabel20.setText("Wybrana klasa:");
 
         UczniowieUsuwanieKlasa.setEditable(false);
+        UczniowieUsuwanieKlasa.setToolTipText("");
+        UczniowieUsuwanieKlasa.setEnabled(false);
         UczniowieUsuwanieKlasa.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 UczniowieUsuwanieKlasaActionPerformed(evt);
@@ -1331,6 +1366,178 @@ public class Okno extends javax.swing.JFrame {
             .addComponent(jPanel10, javax.swing.GroupLayout.DEFAULT_SIZE, 250, Short.MAX_VALUE)
         );
 
+        OcenyDodawanie.setMinimumSize(new java.awt.Dimension(300, 200));
+        OcenyDodawanie.setResizable(false);
+
+        OcenyDodawanieWartosc.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "1", "1.5", "2", "2.5", "3", "3.5", "4", "4.5", "5", "5.5", "6" }));
+        OcenyDodawanieWartosc.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                OcenyDodawanieWartoscItemStateChanged(evt);
+            }
+        });
+
+        jLabel8.setText("Wartość");
+
+        OcenyDodawanieUczen.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        jButton14.setText("Dodaj");
+        jButton14.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton14ActionPerformed(evt);
+            }
+        });
+
+        jButton13.setText("Anuluj");
+        jButton13.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton13ActionPerformed(evt);
+            }
+        });
+
+        jLabel31.setText("Uczeń");
+
+        Title.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        Title.setText("jLabel8");
+
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addComponent(jButton13)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 156, Short.MAX_VALUE)
+                        .addComponent(jButton14))
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addComponent(Title)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addComponent(jLabel8)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(OcenyDodawanieWartosc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addComponent(jLabel31)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(OcenyDodawanieUczen, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap())
+        );
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(Title)
+                .addGap(18, 18, 18)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel31)
+                    .addComponent(OcenyDodawanieUczen, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(OcenyDodawanieWartosc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel8))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 68, Short.MAX_VALUE)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton14)
+                    .addComponent(jButton13))
+                .addContainerGap())
+        );
+
+        javax.swing.GroupLayout OcenyDodawanieLayout = new javax.swing.GroupLayout(OcenyDodawanie.getContentPane());
+        OcenyDodawanie.getContentPane().setLayout(OcenyDodawanieLayout);
+        OcenyDodawanieLayout.setHorizontalGroup(
+            OcenyDodawanieLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        OcenyDodawanieLayout.setVerticalGroup(
+            OcenyDodawanieLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+
+        OcenyUsuwanieOkno.setMinimumSize(new java.awt.Dimension(350, 200));
+        OcenyUsuwanieOkno.setResizable(false);
+
+        jButton15.setText("Anuluj");
+        jButton15.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton15ActionPerformed(evt);
+            }
+        });
+
+        jButton24.setText("Usuń");
+        jButton24.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton24ActionPerformed(evt);
+            }
+        });
+
+        jLabel33.setText("Uczen");
+
+        jLabel34.setText("Ocena");
+
+        OcenyUsuwanieUczen.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                OcenyUsuwanieUczenItemStateChanged(evt);
+            }
+        });
+
+        OcenyUsuwanieTxt.setText("jLabel35");
+
+        javax.swing.GroupLayout jPanel13Layout = new javax.swing.GroupLayout(jPanel13);
+        jPanel13.setLayout(jPanel13Layout);
+        jPanel13Layout.setHorizontalGroup(
+            jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel13Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel13Layout.createSequentialGroup()
+                        .addComponent(jButton15)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 210, Short.MAX_VALUE)
+                        .addComponent(jButton24))
+                    .addGroup(jPanel13Layout.createSequentialGroup()
+                        .addComponent(jLabel34)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(OcenyUsuwanieOcena, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel13Layout.createSequentialGroup()
+                        .addComponent(jLabel33)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(OcenyUsuwanieUczen, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel13Layout.createSequentialGroup()
+                        .addComponent(OcenyUsuwanieTxt)
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
+        );
+        jPanel13Layout.setVerticalGroup(
+            jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel13Layout.createSequentialGroup()
+                .addGap(7, 7, 7)
+                .addComponent(OcenyUsuwanieTxt)
+                .addGap(18, 18, 18)
+                .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel33)
+                    .addComponent(OcenyUsuwanieUczen, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel34)
+                    .addComponent(OcenyUsuwanieOcena, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 69, Short.MAX_VALUE)
+                .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton15)
+                    .addComponent(jButton24))
+                .addContainerGap())
+        );
+
+        javax.swing.GroupLayout OcenyUsuwanieOknoLayout = new javax.swing.GroupLayout(OcenyUsuwanieOkno.getContentPane());
+        OcenyUsuwanieOkno.getContentPane().setLayout(OcenyUsuwanieOknoLayout);
+        OcenyUsuwanieOknoLayout.setHorizontalGroup(
+            OcenyUsuwanieOknoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel13, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        OcenyUsuwanieOknoLayout.setVerticalGroup(
+            OcenyUsuwanieOknoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel13, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocationByPlatform(true);
 
@@ -1417,7 +1624,7 @@ public class Okno extends javax.swing.JFrame {
                     .addComponent(NauczycieleUsun, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(NauczycieleUstaw, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(TabelaNauczycieli, javax.swing.GroupLayout.DEFAULT_SIZE, 416, Short.MAX_VALUE)
+                .addComponent(TabelaNauczycieli, javax.swing.GroupLayout.DEFAULT_SIZE, 408, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -1494,7 +1701,7 @@ public class Okno extends javax.swing.JFrame {
                     .addComponent(KlasyUsun, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(KlasyUstaw, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 416, Short.MAX_VALUE)
+                .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 408, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -1599,7 +1806,7 @@ public class Okno extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(PrzedmiotyTabWybor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane6, javax.swing.GroupLayout.DEFAULT_SIZE, 362, Short.MAX_VALUE)
+                .addComponent(jScrollPane6, javax.swing.GroupLayout.DEFAULT_SIZE, 375, Short.MAX_VALUE)
                 .addGap(13, 13, 13))
         );
 
@@ -1691,11 +1898,167 @@ public class Okno extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(UczniowieWyborTab, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane7, javax.swing.GroupLayout.DEFAULT_SIZE, 364, Short.MAX_VALUE)
+                .addComponent(jScrollPane7, javax.swing.GroupLayout.DEFAULT_SIZE, 377, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
         KartyProgramu.addTab("Uczniowie", UczniowieTab);
+
+        UczniowieTab1.addComponentListener(new java.awt.event.ComponentAdapter() {
+            public void componentShown(java.awt.event.ComponentEvent evt) {
+                UczniowieTab1ComponentShown(evt);
+            }
+        });
+
+        OcenyTabela.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Uczeń", "Wartość", "Data"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.Integer.class, java.lang.String.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false, false
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane8.setViewportView(OcenyTabela);
+
+        jButton22.setText("Dodaj");
+        jButton22.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton22ActionPerformed(evt);
+            }
+        });
+
+        jButton23.setText("Usuń");
+        jButton23.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton23ActionPerformed(evt);
+            }
+        });
+
+        OcenyWyborKlasyTab.addComponentListener(new java.awt.event.ComponentAdapter() {
+            public void componentShown(java.awt.event.ComponentEvent evt) {
+                OcenyWyborKlasyTabComponentShown(evt);
+            }
+        });
+        OcenyWyborKlasyTab.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                OcenyWyborKlasyTabItemStateChanged(evt);
+            }
+        });
+
+        OcenyWyborPrzedmiotuTab.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                OcenyWyborPrzedmiotuTabItemStateChanged(evt);
+            }
+        });
+
+        jLabel32.setText("Tryb:");
+
+        buttonGroup1.add(RadioSrednia);
+        RadioSrednia.setText("Średnia");
+        RadioSrednia.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                RadioSredniaItemStateChanged(evt);
+            }
+        });
+
+        buttonGroup1.add(RadioWszystkie);
+        RadioWszystkie.setSelected(true);
+        RadioWszystkie.setText("Wszystkie oceny");
+        RadioWszystkie.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                RadioWszystkieItemStateChanged(evt);
+            }
+        });
+
+        jLabel35.setText("Kryterium wyświetlania:");
+
+        buttonGroup2.add(RadioPrzedmioty);
+        RadioPrzedmioty.setSelected(true);
+        RadioPrzedmioty.setText("Przedmioty");
+        RadioPrzedmioty.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                RadioPrzedmiotyItemStateChanged(evt);
+            }
+        });
+
+        buttonGroup2.add(RadioUczniowie);
+        RadioUczniowie.setText("Uczniowie");
+        RadioUczniowie.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                RadioUczniowieItemStateChanged(evt);
+            }
+        });
+
+        javax.swing.GroupLayout UczniowieTab1Layout = new javax.swing.GroupLayout(UczniowieTab1);
+        UczniowieTab1.setLayout(UczniowieTab1Layout);
+        UczniowieTab1Layout.setHorizontalGroup(
+            UczniowieTab1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(UczniowieTab1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(UczniowieTab1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(OcenyWyborPrzedmiotuTab, javax.swing.GroupLayout.Alignment.TRAILING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, UczniowieTab1Layout.createSequentialGroup()
+                        .addComponent(jButton22, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButton23, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(OcenyWyborKlasyTab, javax.swing.GroupLayout.Alignment.TRAILING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(UczniowieTab1Layout.createSequentialGroup()
+                        .addComponent(jLabel32)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(RadioWszystkie)
+                        .addGap(18, 18, 18)
+                        .addComponent(RadioSrednia))
+                    .addGroup(UczniowieTab1Layout.createSequentialGroup()
+                        .addComponent(jLabel35)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 291, Short.MAX_VALUE)
+                        .addComponent(RadioPrzedmioty)
+                        .addGap(18, 18, 18)
+                        .addComponent(RadioUczniowie))
+                    .addComponent(jScrollPane8, javax.swing.GroupLayout.DEFAULT_SIZE, 575, Short.MAX_VALUE))
+                .addContainerGap())
+        );
+        UczniowieTab1Layout.setVerticalGroup(
+            UczniowieTab1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, UczniowieTab1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(UczniowieTab1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton22, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButton23, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(OcenyWyborKlasyTab, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(UczniowieTab1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel35)
+                    .addComponent(RadioPrzedmioty)
+                    .addComponent(RadioUczniowie))
+                .addGap(6, 6, 6)
+                .addComponent(OcenyWyborPrzedmiotuTab, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(UczniowieTab1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(RadioSrednia)
+                    .addComponent(RadioWszystkie)
+                    .addComponent(jLabel32))
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane8, javax.swing.GroupLayout.DEFAULT_SIZE, 266, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
+        KartyProgramu.addTab("Oceny", UczniowieTab1);
 
         program.setText("Program");
         program.addActionListener(new java.awt.event.ActionListener() {
@@ -1711,6 +2074,10 @@ public class Okno extends javax.swing.JFrame {
             }
         });
         program.add(PrzykladoweDaneMenu);
+
+        PrzedmiotyCheckbox.setSelected(true);
+        PrzedmiotyCheckbox.setText("Dodawaj standardowe przedmioty");
+        program.add(PrzedmiotyCheckbox);
 
         Odswież.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F5, 0));
         Odswież.setText("Odśwież tabele");
@@ -1766,7 +2133,7 @@ public class Okno extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(KartyProgramu, javax.swing.GroupLayout.DEFAULT_SIZE, 479, Short.MAX_VALUE)
+            .addComponent(KartyProgramu, javax.swing.GroupLayout.DEFAULT_SIZE, 492, Short.MAX_VALUE)
         );
 
         pack();
@@ -1823,6 +2190,7 @@ public class Okno extends javax.swing.JFrame {
      odswiezTabeleKlas();
      odswiezTabelePrzedmiotow();
      odswiezTabeleUczniow();
+     odswiezTabeleOcen();
     }//GEN-LAST:event_OdswieżActionPerformed
 
     private void odswiezTabeleNauczycieli() {
@@ -1910,6 +2278,7 @@ public class Okno extends javax.swing.JFrame {
                 if (listaUczniow.length > 0) {
                     int i=1;
                     for (Uczen u : listaUczniow) {
+                        
                         tabela.addRow(new Object[]{i++,u.getId(),u.getImie(),u.getNazwisko(),u.getWszystkieDane()});
                         
                     }
@@ -1919,6 +2288,103 @@ public class Okno extends javax.swing.JFrame {
 
     }
     
+    public void odswiezTabeleOcen(){
+        DefaultTableModel tabela = (DefaultTableModel) OcenyTabela.getModel();
+
+        while (tabela.getRowCount() > 0) {
+            tabela.removeRow(0);
+        }
+
+        Klasa k = (Klasa) OcenyWyborKlasyTab.getSelectedItem();
+
+        if (k != null) {
+
+            if (!trybUczniowie) {
+                odswiezTabeleOcenPrzedmioty(k);
+            }
+            else
+                odswiezTabeleOcenUczniowie(k);
+        } 
+    }
+
+    public void odswiezTabeleOcenPrzedmioty(Klasa k){
+            DefaultTableModel tabela = (DefaultTableModel) OcenyTabela.getModel();
+            tabela.setColumnIdentifiers(new Object[]{"Uczeń","Wartość","Data"});
+            
+            String p = (String) OcenyWyborPrzedmiotuTab.getSelectedItem();
+
+            if (p != null) {
+
+                Uczen[] uczniowie = dziennik.printUczniowieNaPrzedmiocie(k.getNumerKlasy(), k.getZnakKlasy(), p);
+                
+                    if (!trybSrednia) {
+                        for (Uczen u : uczniowie) {
+                            Ocena[] oceny = dziennik.printOcenyUcznia(k.getNumerKlasy(), k.getZnakKlasy(), p, u.getId());
+
+                            for (Ocena o : oceny) {
+                                tabela.addRow(new Object[]{u, o.toString(), o.dataToString()});
+                            }
+                        }
+                    } else {
+                        double srednia;
+                        int ilosc;
+
+                        for (Uczen u : uczniowie) {
+                            srednia = 0;
+                            ilosc = 0;
+                            Ocena[] oceny = dziennik.printOcenyUcznia(k.getNumerKlasy(), k.getZnakKlasy(), p, u.getId());
+
+                            for (Ocena o : oceny) {
+                                srednia += o.getOcena();
+                                ++ilosc;
+                            }
+
+                            srednia = srednia / ilosc;
+
+                            tabela.addRow(new Object[]{u, srednia, "---"});
+                        }
+                    }
+                }
+    }
+    public void odswiezTabeleOcenUczniowie(Klasa k){
+        DefaultTableModel tabela = (DefaultTableModel) OcenyTabela.getModel();
+        tabela.setColumnIdentifiers(new Object[]{"Przedmiot","Wartość","Data"});
+            
+        Uczen u = (Uczen)OcenyWyborPrzedmiotuTab.getSelectedItem();
+        
+        if(u != null){
+            
+            String[] przedmioty = dziennik.printPrzedmioty(k.getNumerKlasy(), k.getZnakKlasy());
+            
+            if(trybSrednia){
+                
+                double suma;
+                int ilosc;
+                
+                for (String p: przedmioty){
+                    suma=0;
+                    ilosc=0;
+                    Ocena[] oceny = dziennik.printOcenyUcznia(k.getNumerKlasy(), k.getZnakKlasy(), p, u.getId());
+                    for (Ocena o: oceny){
+                        suma+=o.getOcena();
+                        ++ilosc;
+                    }
+                    suma=suma/ilosc;
+                    
+                    tabela.addRow(new Object[]{p, suma, "---"});
+                }
+                
+            }
+            else/*!trybSrednia*/{
+                for (String p: przedmioty){
+                    Ocena[] oceny = dziennik.printOcenyUcznia(k.getNumerKlasy(), k.getZnakKlasy(), p, u.getId());
+                    for(Ocena o: oceny){
+                        tabela.addRow(new Object[]{p, o, o.dataToString()});
+                    }
+                }
+            }
+        }
+    }
     
     private void programActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_programActionPerformed
 
@@ -2132,7 +2598,7 @@ public class Okno extends javax.swing.JFrame {
             id = lista[indeks].getIdentyfikator();
             Nauczyciel n = lista[indeks];
             
-            if (dziennik.addKlasa(numerKlasy, znakKlasy, id)) {
+            if (dziennik.addKlasa(numerKlasy, znakKlasy, id,PrzedmiotyCheckbox.isSelected())) {
                 
                 DefaultTableModel tabela = (DefaultTableModel) TabelaKlas.getModel();
                 tabela.addRow(new Object[]{numerKlasy, znakKlasy, n});
@@ -2532,17 +2998,27 @@ public class Okno extends javax.swing.JFrame {
         Uczen[] uczniowie = dziennik.printWszyscyUczniowieKlasy(wybrana.getNumerKlasy(), wybrana.getZnakKlasy());
         int idUcznia  = uczniowie[UczniowieUsuwanieWybor.getSelectedIndex()].getId();
         
+        String[] przedmioty = dziennik.printPrzedmioty(wybrana.getNumerKlasy(), wybrana.getZnakKlasy());
         
-        if(dziennik.removeUczen(wybrana.getNumerKlasy(), wybrana.getZnakKlasy(), idUcznia))
+        for( String p : przedmioty ){
+            
+            dziennik.removeUczenZPrzedmiotu(wybrana.getNumerKlasy(), wybrana.getZnakKlasy(), p, idUcznia);
+            
+        }
+        
+        boolean b = dziennik.removeUczen(wybrana.getNumerKlasy(), wybrana.getZnakKlasy(), idUcznia);
+        
+        if(b)
         {
             UczniowieUsuwanieOkno.setVisible(false);
             odswiezTabeleUczniow();
+            System.gc();
         }
         
     }//GEN-LAST:event_jButton9ActionPerformed
 
     private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
-        // TODO add your handling code here:
+        UczniowieUsuwanieOkno.setVisible(false);
     }//GEN-LAST:event_jButton10ActionPerformed
 
     private void UczniowieRokActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UczniowieRokActionPerformed
@@ -2729,6 +3205,226 @@ public class Okno extends javax.swing.JFrame {
         
     }//GEN-LAST:event_jButton12ActionPerformed
 
+    private void jButton22ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton22ActionPerformed
+
+        Klasa k = (Klasa)OcenyWyborKlasyTab.getSelectedItem();
+        if (k != null){
+            
+            String p = (String) OcenyWyborPrzedmiotuTab.getSelectedItem();
+            if (p!=null) {
+                
+                OcenyDodawanieUczen.removeAllItems();
+                Uczen[] uczniowie = dziennik.printUczniowieNaPrzedmiocie(k.getNumerKlasy(), k.getZnakKlasy(), p);
+                
+                for ( Uczen u: uczniowie)
+                    OcenyDodawanieUczen.addItem(u);
+                
+                Title.setText("Przedmiot " + p + " w klasie " +k);
+                
+                
+                OcenyDodawanie.setVisible(true);
+            }
+            
+        }
+    }//GEN-LAST:event_jButton22ActionPerformed
+
+    private void jButton23ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton23ActionPerformed
+        
+        OcenyUsuwanieUczen.removeAllItems();
+        Klasa k = (Klasa)OcenyWyborKlasyTab.getSelectedItem();
+        
+        if(k!= null){
+            String p = (String)OcenyWyborPrzedmiotuTab.getSelectedItem();
+            if(p!= null){
+                OcenyUsuwanieTxt.setText("Klasa "+ k +" przedmiot: " + p);
+                Uczen[] uczniowie = dziennik.printUczniowieNaPrzedmiocie(k.getNumerKlasy(), k.getZnakKlasy(), p);
+                
+                for (Uczen u: uczniowie){
+                    Ocena[] oceny = dziennik.printOcenyUcznia(k.getNumerKlasy(), k.getZnakKlasy(), p,u.getId());
+                    
+                    if(oceny.length > 0){
+                        OcenyUsuwanieUczen.addItem(u);
+                    }
+                }
+            }
+        }
+        if(OcenyUsuwanieUczen.getItemCount() > 0)
+            OcenyUsuwanieOkno.setVisible(true);
+        
+    }//GEN-LAST:event_jButton23ActionPerformed
+
+    private void OcenyWyborPrzedmiotuTabItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_OcenyWyborPrzedmiotuTabItemStateChanged
+        odswiezTabeleOcen();
+    }//GEN-LAST:event_OcenyWyborPrzedmiotuTabItemStateChanged
+
+    private void UczniowieTab1ComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_UczniowieTab1ComponentShown
+        OcenyWyborKlasyTab.removeAllItems();
+        
+        Klasa[] lista = dziennik.printWszystkieKlasy();
+    
+        for(Klasa n : lista)
+            OcenyWyborKlasyTab.addItem(n);
+
+        odswiezTabeleOcen();
+    }//GEN-LAST:event_UczniowieTab1ComponentShown
+
+    private void OcenyWyborKlasyTabItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_OcenyWyborKlasyTabItemStateChanged
+
+        OcenyWyborPrzedmiotuTab.removeAllItems();
+
+        Klasa selected = (Klasa) OcenyWyborKlasyTab.getSelectedItem();
+
+        if (selected != null) {
+            
+            if(!trybUczniowie){
+            String[] przedmioty = dziennik.printPrzedmioty(selected.getNumerKlasy(), selected.getZnakKlasy());
+
+            for (String p : przedmioty) {
+                OcenyWyborPrzedmiotuTab.addItem(p);
+            }}
+            else{
+                Uczen[] uczniowie = dziennik.printWszyscyUczniowieKlasy(selected.getNumerKlasy(), selected.getZnakKlasy());
+                for(Uczen u: uczniowie){
+                    OcenyWyborPrzedmiotuTab.addItem(u);
+                }
+            }
+        }
+    }//GEN-LAST:event_OcenyWyborKlasyTabItemStateChanged
+
+    private void OcenyWyborKlasyTabComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_OcenyWyborKlasyTabComponentShown
+
+    }//GEN-LAST:event_OcenyWyborKlasyTabComponentShown
+
+    private void jButton13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton13ActionPerformed
+        OcenyDodawanie.setVisible(false);
+    }//GEN-LAST:event_jButton13ActionPerformed
+
+    private void jButton14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton14ActionPerformed
+        
+        Klasa k = (Klasa)OcenyWyborKlasyTab.getSelectedItem();
+        String p = (String)OcenyWyborPrzedmiotuTab.getSelectedItem();
+        
+        String wartoscTxt= (String)OcenyDodawanieWartosc.getSelectedItem();
+        double wartosc = Double.parseDouble(wartoscTxt);
+        
+        Uczen u = (Uczen)OcenyDodawanieUczen.getSelectedItem();
+        if (u != null) {
+            
+            boolean b = dziennik.addOcena(k.getNumerKlasy(), k.getZnakKlasy(), p, wartosc, u.getId());
+
+            if (b) {
+                OcenyDodawanie.setVisible(false);
+                odswiezTabeleOcen();
+            }
+        }
+    }//GEN-LAST:event_jButton14ActionPerformed
+
+    private void RadioWszystkieItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_RadioWszystkieItemStateChanged
+        
+        if(RadioWszystkie.isSelected()){
+            trybSrednia=false;
+        }
+       
+        odswiezTabeleOcen();
+        
+    }//GEN-LAST:event_RadioWszystkieItemStateChanged
+
+    private void RadioSredniaItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_RadioSredniaItemStateChanged
+        if(RadioSrednia.isSelected()){
+            trybSrednia=true;
+        }
+       
+        odswiezTabeleOcen();
+        
+    }//GEN-LAST:event_RadioSredniaItemStateChanged
+
+    private void OcenyDodawanieWartoscItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_OcenyDodawanieWartoscItemStateChanged
+
+    }//GEN-LAST:event_OcenyDodawanieWartoscItemStateChanged
+
+    private void jButton15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton15ActionPerformed
+    
+        OcenyUsuwanieOkno.setVisible(false);
+        
+    }//GEN-LAST:event_jButton15ActionPerformed
+
+    private void OcenyUsuwanieUczenItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_OcenyUsuwanieUczenItemStateChanged
+        
+        OcenyUsuwanieOcena.removeAllItems();
+        Klasa k = (Klasa)OcenyWyborKlasyTab.getSelectedItem();
+        String p = (String)OcenyWyborPrzedmiotuTab.getSelectedItem();
+        Uczen u = (Uczen)OcenyUsuwanieUczen.getSelectedItem();
+        
+        if (u != null) {
+            Ocena[] oceny = dziennik.printOcenyUcznia(k.getNumerKlasy(), k.getZnakKlasy(), p, u.getId());
+            for (Ocena o : oceny) {
+                
+                OcenyUsuwanieOcena.addItem(o);
+            }
+        }
+        
+    }//GEN-LAST:event_OcenyUsuwanieUczenItemStateChanged
+
+    private void jButton24ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton24ActionPerformed
+
+        Klasa k = (Klasa)OcenyWyborKlasyTab.getSelectedItem();
+        String p = (String)OcenyWyborPrzedmiotuTab.getSelectedItem();
+        Uczen u = (Uczen)OcenyUsuwanieUczen.getSelectedItem();
+        int id = OcenyUsuwanieOcena.getSelectedIndex();
+        
+        boolean b = k.removeOcenaUcznia(p, u.getId(), id);
+        
+        if (b){
+            OcenyUsuwanieOkno.setVisible(false);
+            odswiezTabeleOcen();
+        }
+    }//GEN-LAST:event_jButton24ActionPerformed
+
+    private void RadioPrzedmiotyItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_RadioPrzedmiotyItemStateChanged
+       
+        if(RadioPrzedmioty.isSelected()){
+            trybUczniowie=false;
+            
+            Klasa k = (Klasa)OcenyWyborKlasyTab.getSelectedItem();
+            
+            OcenyWyborPrzedmiotuTab.removeAllItems();
+            
+            if(k!= null){
+                String[] przed = dziennik.printPrzedmioty(k.getNumerKlasy(), k.getZnakKlasy());
+                
+                for ( String p: przed)
+                    OcenyWyborPrzedmiotuTab.addItem(p);
+            }
+        }
+       
+        jButton22.setEnabled(true);
+        jButton23.setEnabled(true);
+                
+        odswiezTabeleOcen();
+        
+    }//GEN-LAST:event_RadioPrzedmiotyItemStateChanged
+
+    private void RadioUczniowieItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_RadioUczniowieItemStateChanged
+        if(RadioUczniowie.isSelected()){
+            trybUczniowie=true;
+            
+            Klasa k = (Klasa)OcenyWyborKlasyTab.getSelectedItem();
+            
+            OcenyWyborPrzedmiotuTab.removeAllItems();
+            
+            if(k!= null){
+               Uczen[] uczniowie = dziennik.printWszyscyUczniowieKlasy(k.getNumerKlasy(), k.getZnakKlasy());
+                
+               for( Uczen u : uczniowie)
+                   OcenyWyborPrzedmiotuTab.addItem(u);
+            }
+        }
+        
+        jButton22.setEnabled(false);
+        jButton23.setEnabled(false);
+        odswiezTabeleOcen();
+    }//GEN-LAST:event_RadioUczniowieItemStateChanged
+
     /**
      * @param args the command line arguments
      */
@@ -2766,6 +3462,9 @@ public class Okno extends javax.swing.JFrame {
     }
     
     private static Dziennik dziennik = new Dziennik();
+    private boolean trybSrednia = false;
+    private boolean trybUczniowie = false;
+    
    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton DodajKlaseAnuluj;
@@ -2810,14 +3509,29 @@ public class Okno extends javax.swing.JFrame {
     private javax.swing.JButton NauczycieleUsun;
     private javax.swing.JComboBox Nauczycieledzien;
     private javax.swing.JButton OK;
+    private javax.swing.JFrame OcenyDodawanie;
+    private javax.swing.JComboBox OcenyDodawanieUczen;
+    private javax.swing.JComboBox OcenyDodawanieWartosc;
+    private javax.swing.JTable OcenyTabela;
+    private javax.swing.JComboBox OcenyUsuwanieOcena;
+    private javax.swing.JFrame OcenyUsuwanieOkno;
+    private javax.swing.JLabel OcenyUsuwanieTxt;
+    private javax.swing.JComboBox OcenyUsuwanieUczen;
+    private javax.swing.JComboBox OcenyWyborKlasyTab;
+    private javax.swing.JComboBox OcenyWyborPrzedmiotuTab;
     private javax.swing.JMenuItem Odswież;
     private javax.swing.JFrame PrzedmiotUstawNauczyciela;
     private javax.swing.JTextField PrzedmiotUsuwanieKlasa;
     private javax.swing.JFrame PrzedmiotUsuwanieOkno;
     private javax.swing.JComboBox PrzedmiotUsuwanieWybor;
+    private javax.swing.JCheckBoxMenuItem PrzedmiotyCheckbox;
     private javax.swing.JPanel PrzedmiotyTab;
     private javax.swing.JComboBox PrzedmiotyTabWybor;
     private javax.swing.JCheckBoxMenuItem PrzykladoweDaneMenu;
+    private javax.swing.JRadioButton RadioPrzedmioty;
+    private javax.swing.JRadioButton RadioSrednia;
+    private javax.swing.JRadioButton RadioUczniowie;
+    private javax.swing.JRadioButton RadioWszystkie;
     private javax.swing.JFrame RokDialog;
     private javax.swing.JButton RokDialogCancel;
     private javax.swing.JButton RokDialogOk;
@@ -2826,6 +3540,7 @@ public class Okno extends javax.swing.JFrame {
     private javax.swing.JScrollPane TabelaNauczycieli;
     private javax.swing.JTable TabelaPrzedmiotow;
     private javax.swing.JLabel TekstRoku;
+    private javax.swing.JLabel Title;
     private javax.swing.JTextField UczniowieDodawanieImieText;
     private javax.swing.JLabel UczniowieDodawanieKlasa;
     private javax.swing.JTextField UczniowieDodawanieNazwiskoText;
@@ -2839,6 +3554,7 @@ public class Okno extends javax.swing.JFrame {
     private javax.swing.JComboBox UczniowieOsoba;
     private javax.swing.JTextField UczniowieRok;
     private javax.swing.JPanel UczniowieTab;
+    private javax.swing.JPanel UczniowieTab1;
     private javax.swing.JTable UczniowieTabela;
     private javax.swing.JTextField UczniowieUlica;
     private javax.swing.JButton UczniowieUstawDane;
@@ -2860,10 +3576,15 @@ public class Okno extends javax.swing.JFrame {
     private javax.swing.JComboBox UsuwanieKlasyWybor;
     private javax.swing.JMenuItem UsuwanieRokuMenu;
     private javax.swing.JComboBox WyborRoku;
+    private javax.swing.ButtonGroup buttonGroup1;
+    private javax.swing.ButtonGroup buttonGroup2;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton11;
     private javax.swing.JButton jButton12;
+    private javax.swing.JButton jButton13;
+    private javax.swing.JButton jButton14;
+    private javax.swing.JButton jButton15;
     private javax.swing.JButton jButton16;
     private javax.swing.JButton jButton17;
     private javax.swing.JButton jButton18;
@@ -2871,6 +3592,9 @@ public class Okno extends javax.swing.JFrame {
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton20;
     private javax.swing.JButton jButton21;
+    private javax.swing.JButton jButton22;
+    private javax.swing.JButton jButton23;
+    private javax.swing.JButton jButton24;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
@@ -2902,18 +3626,26 @@ public class Okno extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel30;
+    private javax.swing.JLabel jLabel31;
+    private javax.swing.JLabel jLabel32;
+    private javax.swing.JLabel jLabel33;
+    private javax.swing.JLabel jLabel34;
+    private javax.swing.JLabel jLabel35;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel11;
     private javax.swing.JPanel jPanel12;
+    private javax.swing.JPanel jPanel13;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
@@ -2922,6 +3654,7 @@ public class Okno extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JScrollPane jScrollPane7;
+    private javax.swing.JScrollPane jScrollPane8;
     private javax.swing.JMenu program;
     // End of variables declaration//GEN-END:variables
 }

@@ -49,12 +49,12 @@ public class RokSzkolny {
       
     public void zaladujPrzykladoweDane() {
         
-       klasy.add(new Klasa(1, 'A', 1));
-       klasy.add(new Klasa(1, 'B', 2));
-       klasy.add(new Klasa(2, 'A', 3));
-       klasy.add(new Klasa(2, 'B', 4));
-       klasy.add(new Klasa(3, 'A', 5));
-       klasy.add(new Klasa(3, 'B', 6));
+       klasy.add(new Klasa(1, 'A', 1,true));
+       klasy.add(new Klasa(1, 'B', 2,true));
+       klasy.add(new Klasa(2, 'A', 3,true));
+       klasy.add(new Klasa(2, 'B', 4,true));
+       klasy.add(new Klasa(3, 'A', 5,true));
+       klasy.add(new Klasa(3, 'B', 6,true));
        
        for (int i = 0 ; i < 6 ; i++) {
            klasy.get(i).zaladujPrzykladoweDane();
@@ -64,7 +64,7 @@ public class RokSzkolny {
     //metody pracujące najdalej z klasą
 
     
-    public boolean addKlasa(int numerKlasy, char znakKlasy, int idWychowawcy) {
+    public boolean addKlasa(int numerKlasy, char znakKlasy, int idWychowawcy,boolean przedmioty) {
 
         if (czyKlasaIstnieje(numerKlasy, znakKlasy)) 
             return false;
@@ -73,13 +73,13 @@ public class RokSzkolny {
                 return false;
         }    
         
-        return klasy.add(new Klasa(numerKlasy, znakKlasy, idWychowawcy));
+        return klasy.add(new Klasa(numerKlasy, znakKlasy, idWychowawcy,przedmioty));
         
     }
     
     private boolean czyKlasaIstnieje(int numerKlasy, char znakKlasy) {
 
-        Klasa wzor = new Klasa(numerKlasy, znakKlasy);
+        Klasa wzor = new Klasa(numerKlasy, znakKlasy,false);
         Klasa swap;
        
         
@@ -113,7 +113,7 @@ public class RokSzkolny {
     public Klasa getKlasa(int numerKlasy , char znakKlasy) {
         boolean znaleziono = false;
         Klasa swap = null;
-        Klasa wzor = new Klasa(numerKlasy, znakKlasy);
+        Klasa wzor = new Klasa(numerKlasy, znakKlasy,false);
         int i =0;
         
         while ( !znaleziono && i<klasy.size()  ) {

@@ -257,10 +257,10 @@ public class Dziennik {
     
     //metody pracujące najdalej z klasą
     
-    public boolean addKlasa(int numerKlasy, char znakKlasy, int idWychowawcy) {
+    public boolean addKlasa(int numerKlasy, char znakKlasy, int idWychowawcy, boolean przedmioty) {
 
         znakKlasy = Character.toUpperCase(znakKlasy);
-        return ObecnyRocznik.addKlasa(numerKlasy, znakKlasy, idWychowawcy);
+        return ObecnyRocznik.addKlasa(numerKlasy, znakKlasy, idWychowawcy,przedmioty);
         
     }
    

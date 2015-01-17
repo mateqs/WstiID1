@@ -31,10 +31,17 @@ public class Ocena {
     @Override    
     public String toString () {
         
-        DateFormat df = new SimpleDateFormat("d MMMM yyyy  H:m");
+        
+        
+        return Double.toString(Ocena);
+    }
+    
+    public String dataToString(){
+        
+        DateFormat df = new SimpleDateFormat("d MMMM yyyy  H:mm");
         String d = df.format(data.getTime());
         
-        return "Ocena: "+Double.toString(Ocena) +" \n" + d;
+        return d;
     }
     
     public double getOcena() {

@@ -23,19 +23,21 @@ public class Klasa {
     
     
    
-    Klasa(int NumerKlasy ,char ZnakKlasy , int IdWychowawcy ) {
+    Klasa(int NumerKlasy ,char ZnakKlasy , int IdWychowawcy , boolean przedmioty ) {
         
         this.numerKlasy = NumerKlasy;
         this.znakKlasy = ZnakKlasy;
         this.idWychowawcy = IdWychowawcy;
-        this.addDomyslnePrzedmioty();
+        if(przedmioty)
+            this.addDomyslnePrzedmioty();
     }
     
-    Klasa(int NumerKlasy ,char ZnakKlasy ) {
+    Klasa(int NumerKlasy ,char ZnakKlasy, boolean przedmioty ) {
         
         this.numerKlasy = NumerKlasy;
         this.znakKlasy = ZnakKlasy;
-        this.addDomyslnePrzedmioty();
+        if(przedmioty)
+            this.addDomyslnePrzedmioty();
     }
     
     
@@ -405,4 +407,26 @@ public class Klasa {
             return null;
              
     }
+    
+    public boolean removeOcenaUcznia (String nazwaPrzedmiotu, int indeksUcznia , int idOceny){
+        
+        boolean znaleziono = false;
+        Przedmiot p=null;
+        int i=0;
+        
+        while (!znaleziono && i< Przedmioty.size()) {
+            p=Przedmioty.get(i);
+            if (p.getNazwa().equals(nazwaPrzedmiotu))
+                znaleziono = true;
+            else 
+                i++;
+        }
+        
+        if (znaleziono)
+            return p.removeOcenaUcznia( indeksUcznia, idOceny);
+        else
+            return false;
+    }
+    
+    
 }

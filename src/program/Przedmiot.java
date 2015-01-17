@@ -60,7 +60,7 @@ public class Przedmiot {
     }
     
     public boolean addOcena(double wartosc , int indeks) {
-        if(wartosc >= 0 && wartosc < 6 && indeks >= 0)
+        if(wartosc >= 0 && wartosc <= 6 && indeks >= 0)
             return Oceny.add(new Ocena(wartosc, indeks));
         else
             return false;
@@ -79,6 +79,36 @@ public class Przedmiot {
         
         for(int i = 0; i < list.size() ; i++){
             o[i] = list.get(i);
+        }
+        
+        return o;
+    }
+    
+    public boolean removeOcenaUcznia (int indeksUcznia , int idOceny){
+        
+        for (Ocena oce : Oceny) {
+            if(oce.getIndeksUcznia() == indeksUcznia){
+                if(idOceny == 0){
+                    
+                    Oceny.remove(oce);
+                    return true;
+                }
+                else
+                    --idOceny;
+            }
+        }
+        
+        
+        return false;
+        
+    }
+    
+    public Ocena[] printOceny(){
+
+        Ocena[] o = new Ocena[Oceny.size()];
+        
+        for(int i = 0; i < Oceny.size() ; i++){
+            o[i] = Oceny.get(i);
         }
         
         return o;
@@ -108,6 +138,14 @@ public class Przedmiot {
             
         }
         if (znaleziono){
+            
+            for(Ocena o: Oceny){
+                if (u != null)
+                    if (o.getIndeksUcznia() == u.getId()) 
+                        Oceny.remove(o);
+                    
+            }
+            
             Uczniowie.remove(i);
             return true;
         }
